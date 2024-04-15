@@ -28,7 +28,11 @@ public class PresentadorJuego implements JuegoListener{
 
     @Override
     public void clickBotonSalir() {
-        
+        new PresentadorPantallaPrincipal().mostrarPantallaPrincipal();
+    }
+    
+    public void mostrarPantallaJuego(){
+        this.view.setVisible(true);
     }
     
 }

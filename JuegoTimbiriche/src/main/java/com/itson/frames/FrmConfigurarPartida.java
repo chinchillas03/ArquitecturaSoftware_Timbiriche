@@ -21,8 +21,22 @@ public class FrmConfigurarPartida extends javax.swing.JFrame {
         initComponents();
     }
 
+    private void cerrarPantalla(){
+        this.setVisible(false);
+    }
+    
     public void setListener(ConfigurarPartidaListener listener){
         this.listener = listener;
+    }
+    
+    private void listenerCrearPartida (){
+        this.listener.clickBotonCrearPartida();
+        this.cerrarPantalla();
+    }
+    
+    private void listenerVolverInicio (){
+        this.listener.clickBotonVolverInicio();
+        this.cerrarPantalla();
     }
     
     /**
@@ -40,7 +54,7 @@ public class FrmConfigurarPartida extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnCrearPartida = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnVolverInicio = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,11 +74,21 @@ public class FrmConfigurarPartida extends javax.swing.JFrame {
         btnCrearPartida.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCrearPartida.setForeground(new java.awt.Color(255, 255, 255));
         btnCrearPartida.setText("Crear Partida");
+        btnCrearPartida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearPartidaActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(51, 102, 255));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Volver al inicio");
+        btnVolverInicio.setBackground(new java.awt.Color(51, 102, 255));
+        btnVolverInicio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnVolverInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnVolverInicio.setText("Volver al inicio");
+        btnVolverInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverInicioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -74,7 +98,7 @@ public class FrmConfigurarPartida extends javax.swing.JFrame {
                 .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnCrearPartida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                    .addComponent(btnVolverInicio, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
                 .addGap(19, 19, 19))
         );
         jPanel1Layout.setVerticalGroup(
@@ -83,7 +107,7 @@ public class FrmConfigurarPartida extends javax.swing.JFrame {
                 .addGap(140, 140, 140)
                 .addComponent(btnCrearPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(74, 74, 74)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVolverInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -134,10 +158,21 @@ public class FrmConfigurarPartida extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCrearPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearPartidaActionPerformed
+        // TODO add your handling code here:
+        this.listenerCrearPartida();
+    }//GEN-LAST:event_btnCrearPartidaActionPerformed
+
+    private void btnVolverInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverInicioActionPerformed
+        // TODO add your handling code here:
+        this.listenerVolverInicio();
+    }//GEN-LAST:event_btnVolverInicioActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearPartida;
+    private javax.swing.JButton btnVolverInicio;
     private javax.swing.JComboBox<String> cmbDimension;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -28,7 +28,7 @@ public class PresentadorConfigurarPartida implements ConfigurarPartidaListener{
 
     @Override
     public void clickBotonCrearPartida() {
-        
+        new PresentadorLobby().mostrarPantallaLobby();
     }
     
     public  void mostrarPantallaConfigurarPartida(){

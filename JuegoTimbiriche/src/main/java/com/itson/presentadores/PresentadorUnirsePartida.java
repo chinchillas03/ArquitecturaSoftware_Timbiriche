@@ -23,12 +23,12 @@ public class PresentadorUnirsePartida implements UnirsePartidaListener{
     
     @Override
     public void clickBotonUnirsePartida() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        new PresentadorLobby().mostrarPantallaLobby();
     }
 
     @Override
     public void clickBotonSalir() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        new PresentadorPantallaPrincipal().mostrarPantallaPrincipal();
     }
     
     public void mostrarPantallaUnirsePartida(){

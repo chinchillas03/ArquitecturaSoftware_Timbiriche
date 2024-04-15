@@ -25,6 +25,20 @@ public class FrmUnirsePartida extends javax.swing.JFrame {
         this.listener = listener;
     }
     
+    private void cerrarPantalla(){
+        this.setVisible(false);
+    }
+    
+    private void listenerUnirsePartida(){
+        this.listener.clickBotonUnirsePartida();
+        this.cerrarPantalla();
+    }
+    
+    private void listenerVolverInicio(){
+        this.listener.clickBotonSalir();
+        this.cerrarPantalla();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,22 +48,115 @@ public class FrmUnirsePartida extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnUnirsePartida = new javax.swing.JButton();
+        btnVolverInicio = new javax.swing.JButton();
+        txtIP = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        btnUnirsePartida.setBackground(new java.awt.Color(51, 102, 255));
+        btnUnirsePartida.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnUnirsePartida.setForeground(new java.awt.Color(255, 255, 255));
+        btnUnirsePartida.setText("Unirse Partida");
+        btnUnirsePartida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUnirsePartidaActionPerformed(evt);
+            }
+        });
+
+        btnVolverInicio.setBackground(new java.awt.Color(255, 255, 255));
+        btnVolverInicio.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnVolverInicio.setForeground(new java.awt.Color(0, 0, 0));
+        btnVolverInicio.setText("<");
+        btnVolverInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVolverInicioActionPerformed(evt);
+            }
+        });
+
+        txtIP.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtIP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        txtCodigo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtCodigo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Codigo");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("IP");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(236, 236, 236))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnVolverInicio))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCodigo)
+                            .addComponent(txtIP, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(175, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnUnirsePartida)
+                        .addGap(175, 175, 175))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(205, 205, 205))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVolverInicio)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtIP, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(btnUnirsePartida, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnUnirsePartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnirsePartidaActionPerformed
+        // TODO add your handling code here:
+        this.listenerUnirsePartida();
+    }//GEN-LAST:event_btnUnirsePartidaActionPerformed
+
+    private void btnVolverInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverInicioActionPerformed
+        // TODO add your handling code here:
+        this.listenerVolverInicio();
+    }//GEN-LAST:event_btnVolverInicioActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnUnirsePartida;
+    private javax.swing.JButton btnVolverInicio;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtIP;
     // End of variables declaration//GEN-END:variables
 }

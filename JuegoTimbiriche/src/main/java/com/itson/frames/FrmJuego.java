@@ -25,6 +25,15 @@ public class FrmJuego extends javax.swing.JFrame {
         this.listener = listener;
     }
     
+    private void cerrarPantalla(){
+        this.setVisible(false);
+    }
+    
+    private void listenerSalir(){
+        this.listener.clickBotonSalir();
+        this.cerrarPantalla();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -34,22 +43,48 @@ public class FrmJuego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnSalir = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
+
+        btnSalir.setBackground(new java.awt.Color(255, 0, 0));
+        btnSalir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(395, Short.MAX_VALUE)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(395, 395, 395))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(640, Short.MAX_VALUE)
+                .addComponent(btnSalir)
+                .addGap(28, 28, 28))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        this.listenerSalir();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSalir;
     // End of variables declaration//GEN-END:variables
 }

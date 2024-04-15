@@ -23,12 +23,12 @@ public class PresentadorLobby implements LobbyListener{
     
     @Override
     public void solicitarInicio() {
-        
+        new PresentadorJuego().mostrarPantallaJuego();
     }
 
     @Override
     public void salir() {
-        
+        new PresentadorPantallaPrincipal().mostrarPantallaPrincipal();
     }
 
     @Override
@@ -39,6 +39,10 @@ public class PresentadorLobby implements LobbyListener{
     @Override
     public void cambioAvatarIzquierda() {
         
+    }
+    
+    public void mostrarPantallaLobby (){
+        this.view.setVisible(true);
     }
     
 }
