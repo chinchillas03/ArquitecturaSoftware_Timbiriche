@@ -8,14 +8,8 @@ package com.itson.interfaces;
  *
  * @author Usuario
  */
-public interface PantallaPrincipalListener {
+public interface JuegoListener {
+    void ponerLinea();
 
-    void clickBotonUnirsePartida();
-
-    void clickBotonCrearPartida();
-
-    void cambioAvatarDerecha();
-
-    void cambioAvatarIzquierda();
-
+    void clickBotonSalir();
 }

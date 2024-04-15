@@ -15,10 +15,30 @@ import com.itson.modelos.ModeloPantallaPrincipal;
 public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
     
     private final FrmPantallaPrincipal vista = new FrmPantallaPrincipal();
-    private final ModeloPantallaPrincipal modelo = new ModeloPantallaPrincipal();
+    private final ModeloPantallaPrincipal model = new ModeloPantallaPrincipal();
     
     public PresentadorPantallaPrincipal(){
         this.vista.setListener(this);
+    }
+
+    @Override
+    public void clickBotonUnirsePartida() {
+        
+    }
+
+    @Override
+    public void clickBotonCrearPartida() {
+        
+   }
+
+    @Override
+    public void cambioAvatarDerecha() {
+        
+    }
+
+    @Override
+    public void cambioAvatarIzquierda() {
+        
     }
     
 }
