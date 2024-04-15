@@ -14,21 +14,21 @@ import com.itson.modelos.ModeloPantallaPrincipal;
  */
 public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
     
-    private final FrmPantallaPrincipal vista = new FrmPantallaPrincipal();
+    private final FrmPantallaPrincipal view = new FrmPantallaPrincipal();
     private final ModeloPantallaPrincipal model = new ModeloPantallaPrincipal();
     
     public PresentadorPantallaPrincipal(){
-        this.vista.setListener(this);
+        this.view.setListener(this);
     }
 
     @Override
     public void clickBotonUnirsePartida() {
-        
+        new PresentadorUnirsePartida().mostrarPantallaUnirsePartida();      
     }
 
     @Override
     public void clickBotonCrearPartida() {
-        
+        new PresentadorConfigurarPartida().mostrarPantallaConfigurarPartida();
    }
 
     @Override
@@ -39,6 +39,10 @@ public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
     @Override
     public void cambioAvatarIzquierda() {
         
+    }
+    
+    public void mostrarPantallaPrincipal(){
+        this.view.setVisible(true);
     }
     
 }

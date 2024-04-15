@@ -4,6 +4,8 @@
 
 package com.itson.juegotimbiriche;
 
+import com.itson.presentadores.PresentadorPantallaPrincipal;
+
 /**
  *
  * @author Usuario
@@ -11,6 +13,6 @@ package com.itson.juegotimbiriche;
 public class JuegoTimbiriche {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        new PresentadorPantallaPrincipal().mostrarPantallaPrincipal();
     }
 }

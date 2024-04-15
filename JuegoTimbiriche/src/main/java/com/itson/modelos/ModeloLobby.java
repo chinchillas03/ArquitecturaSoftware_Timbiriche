@@ -4,7 +4,7 @@
  */
 package com.itson.modelos;
 
-import dominio.Jugador;
+//import dominio.Jugador;
 import javax.swing.ImageIcon;
 
 /**
@@ -13,18 +13,18 @@ import javax.swing.ImageIcon;
  */
 public class ModeloLobby {
     
-    private Jugador[] jugadores;
+    //private Jugador[] jugadores;
     private ImageIcon[] avatares;
     private String codigo;
     private String dimension;
 
-    public Jugador[] getJugadores() {
-        return jugadores;
-    }
-
-    public void setJugadores(Jugador[] jugadores) {
-        this.jugadores = jugadores;
-    }
+//    public Jugador[] getJugadores() {
+//        return jugadores;
+//    }
+//
+//    public void setJugadores(Jugador[] jugadores) {
+//        this.jugadores = jugadores;
+//    }
 
     public ImageIcon[] getAvatares() {
         return avatares;

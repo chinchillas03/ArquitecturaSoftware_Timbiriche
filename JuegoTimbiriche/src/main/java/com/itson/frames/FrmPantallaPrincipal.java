@@ -25,6 +25,20 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         this.listener = listener;
     }
     
+    private void cerrarPantalla(){
+        this.setVisible(false);
+    }
+    
+    private void listenerNuevaPartida (){
+        this.listener.clickBotonCrearPartida();
+        this.cerrarPantalla();
+    }
+    
+    private void listenerUnirsePartida (){
+        this.listener.clickBotonUnirsePartida();
+        this.cerrarPantalla();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,14 +91,17 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNuevaPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaPartidaActionPerformed
         // TODO add your handling code here:
+        this.listenerNuevaPartida();
     }//GEN-LAST:event_btnNuevaPartidaActionPerformed
 
     private void btnUnirsePartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnirsePartidaActionPerformed
         // TODO add your handling code here:
+        this.listenerUnirsePartida();
     }//GEN-LAST:event_btnUnirsePartidaActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNuevaPartida;

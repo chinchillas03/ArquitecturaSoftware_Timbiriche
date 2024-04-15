@@ -23,7 +23,7 @@ public class PresentadorConfigurarPartida implements ConfigurarPartidaListener{
     
     @Override
     public void clickBotonVolverInicio() {
-        
+        new PresentadorPantallaPrincipal().mostrarPantallaPrincipal();
     }
 
     @Override
@@ -31,4 +31,7 @@ public class PresentadorConfigurarPartida implements ConfigurarPartidaListener{
         
     }
     
+    public  void mostrarPantallaConfigurarPartida(){
+        this.view.setVisible(true);
+    }
 }
