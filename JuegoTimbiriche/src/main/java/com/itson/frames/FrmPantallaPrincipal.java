@@ -5,6 +5,8 @@
 package com.itson.frames;
 
 import com.itson.interfaces.PantallaPrincipalListener;
+import java.util.List;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -17,7 +19,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form FrmPantallaPrincipal
      */
-    public FrmPantallaPrincipal() {
+    public FrmPantallaPrincipal() {        
         initComponents();
     }
 
@@ -39,6 +41,12 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         this.cerrarPantalla();
     }
     
+    public void cargarAvatares(){
+        this.lblAvatar.setIcon(new ImageIcon("/com.itson.imgAvatares/PlayerAmarillo.png"));
+        this.repaint();
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,6 +59,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnNuevaPartida = new javax.swing.JButton();
         btnUnirsePartida = new javax.swing.JButton();
+        lblAvatar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -61,6 +70,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         btnNuevaPartida.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnNuevaPartida.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevaPartida.setText("Nueva Partida");
+        btnNuevaPartida.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnNuevaPartida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevaPartidaActionPerformed(evt);
@@ -71,6 +81,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         btnUnirsePartida.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnUnirsePartida.setForeground(new java.awt.Color(255, 255, 255));
         btnUnirsePartida.setText("Buscar Partida");
+        btnUnirsePartida.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnUnirsePartida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUnirsePartidaActionPerformed(evt);
@@ -98,17 +109,25 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
                 .addGap(185, 185, 185))
         );
 
+        lblAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 422, Short.MAX_VALUE)
+                .addGap(151, 151, 151)
+                .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(187, 187, 187))
         );
 
         pack();
@@ -128,5 +147,6 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevaPartida;
     private javax.swing.JButton btnUnirsePartida;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblAvatar;
     // End of variables declaration//GEN-END:variables
 }

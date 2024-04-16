@@ -7,6 +7,8 @@ package com.itson.presentadores;
 import com.itson.frames.FrmPantallaPrincipal;
 import com.itson.interfaces.PantallaPrincipalListener;
 import com.itson.modelos.ModeloPantallaPrincipal;
+import java.util.List;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -19,6 +21,7 @@ public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
     
     public PresentadorPantallaPrincipal(){
         this.view.setListener(this);
+        this.view.repaint();
     }
 
     @Override
@@ -43,6 +46,10 @@ public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
     
     public void mostrarPantallaPrincipal(){
         this.view.setVisible(true);
+    }
+
+    public void cargarAvatares(){
+        this.model.setAvatares();
     }
     
 }
