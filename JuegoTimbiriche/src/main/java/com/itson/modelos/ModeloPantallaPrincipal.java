@@ -31,10 +31,10 @@ public class ModeloPantallaPrincipal {
 
     public void setAvatares() {
         this.avatares = new LinkedList<>();
-        avatares.add(new ImageIcon("com.itson.imgAvatares/PlayerAmarillo.png"));
-        avatares.add(new ImageIcon("com.itson.imgAvatares/PlayerAzul.png"));
-        avatares.add(new ImageIcon("com.itson.imgAvatares/PlayerRojo.png"));
-        avatares.add(new ImageIcon("com.itson.imgAvatares/PlayerVerde.png"));
+        avatares.add(new ImageIcon(getClass().getResource("/Player Azul.png")));
+        avatares.add(new ImageIcon(getClass().getResource("/Player Rojo.png")));
+        avatares.add(new ImageIcon(getClass().getResource("/Player Amarillo.png")));
+        avatares.add(new ImageIcon(getClass().getResource("/Player Verde.png")));
     }
   
 }

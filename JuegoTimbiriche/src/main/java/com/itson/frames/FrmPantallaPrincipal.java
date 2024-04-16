@@ -7,6 +7,8 @@ package com.itson.frames;
 import com.itson.interfaces.PantallaPrincipalListener;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +23,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
      */
     public FrmPantallaPrincipal() {        
         initComponents();
+        cargarAvatares();
     }
 
     public void setListener(PantallaPrincipalListener listener) {
@@ -40,13 +43,23 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         this.listener.clickBotonUnirsePartida();
         this.cerrarPantalla();
     }
-    
+ 
     public void cargarAvatares(){
-        this.lblAvatar.setIcon(new ImageIcon("/com.itson.imgAvatares/PlayerAmarillo.png"));
+        this.lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Player Azul.png")));
         this.repaint();
     }
     
+    private void listenerCambioAvatarIzquierda(){
+        this.listener.cambioAvatarIzquierda();
+    }
     
+    private void listenerCambioAvatarDerecha(){
+        this.listener.cambioAvatarDerecha();
+    }
+    
+      public JLabel getLblAvatar() {
+        return this.lblAvatar;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,7 +72,12 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnNuevaPartida = new javax.swing.JButton();
         btnUnirsePartida = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         lblAvatar = new javax.swing.JLabel();
+        flechaIzquierda = new javax.swing.JLabel();
+        flechaDerecha = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -93,41 +111,68 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUnirsePartida, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNuevaPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                .addGap(17, 17, 17))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(192, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnNuevaPartida, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGap(27, 27, 27)
                 .addComponent(btnUnirsePartida, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(185, 185, 185))
         );
 
-        lblAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Timbiriche.png"))); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
+        jLabel2.setText("Player 1");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
+
+        lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Player Azul.png"))); // NOI18N
+        jPanel2.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 190, -1, -1));
+
+        flechaIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Flecha Izquierda.png"))); // NOI18N
+        flechaIzquierda.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                flechaIzquierdaMouseClicked(evt);
+            }
+        });
+        jPanel2.add(flechaIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
+
+        flechaDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Flecha Derecha.png"))); // NOI18N
+        flechaDerecha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                flechaDerechaMouseClicked(evt);
+            }
+        });
+        jPanel2.add(flechaDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(151, 151, 151)
-                .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 438, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(187, 187, 187))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
         );
 
         pack();
@@ -143,10 +188,30 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.listenerUnirsePartida();
     }//GEN-LAST:event_btnUnirsePartidaActionPerformed
+
+    private void flechaIzquierdaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaIzquierdaMouseClicked
+        
+        this.listenerCambioAvatarIzquierda();
+    }//GEN-LAST:event_flechaIzquierdaMouseClicked
+
+    private void flechaDerechaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_flechaDerechaMouseClicked
+       
+        this.listenerCambioAvatarDerecha();
+    }//GEN-LAST:event_flechaDerechaMouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNuevaPartida;
     private javax.swing.JButton btnUnirsePartida;
+    private javax.swing.JLabel flechaDerecha;
+    private javax.swing.JLabel flechaIzquierda;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAvatar;
     // End of variables declaration//GEN-END:variables
 }
