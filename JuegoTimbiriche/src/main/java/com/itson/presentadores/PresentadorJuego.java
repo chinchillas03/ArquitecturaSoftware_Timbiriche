@@ -28,7 +28,7 @@ public class PresentadorJuego implements JuegoListener{
 
     @Override
     public void clickBotonSalir() {
-        new PresentadorPantallaPrincipal().mostrarPantallaPrincipal();
+        new PresentadorGanador().mostrarPantallaGanador();
     }
     
     public void mostrarPantallaJuego(){
