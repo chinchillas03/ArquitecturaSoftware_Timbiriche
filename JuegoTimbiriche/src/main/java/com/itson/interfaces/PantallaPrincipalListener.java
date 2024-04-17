@@ -18,6 +18,6 @@ public interface PantallaPrincipalListener {
 
     void cambioAvatarIzquierda();
     
-    void clickNombre();
+    void cambiarNombre();
 
 }

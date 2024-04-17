@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -74,7 +75,16 @@ public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
 }
 
     @Override
-    public void clickNombre() {
+    public void cambiarNombre() {
+        String nombre = JOptionPane.showInputDialog(view, "Ingresa tu nombre");
+       
+        if(nombre != null){
+             model.setNombre(nombre);
+             view.getLblNombre().setText(model.getNombre());  
+        }else{
+            JOptionPane.showMessageDialog(view, "Ingresa un nombre valido");
+        }
+       
         
     }
 }

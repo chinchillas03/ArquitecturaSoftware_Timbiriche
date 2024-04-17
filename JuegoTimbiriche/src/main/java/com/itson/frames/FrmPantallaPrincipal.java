@@ -60,6 +60,14 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
       public JLabel getLblAvatar() {
         return this.lblAvatar;
     }
+      
+    public void listenerCambiarNombre(){
+        this.listener.cambiarNombre();
+    }  
+    
+      public JLabel getLblNombre() {
+        return this.lblNombre;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,7 +82,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         btnUnirsePartida = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         lblAvatar = new javax.swing.JLabel();
         flechaIzquierda = new javax.swing.JLabel();
         flechaDerecha = new javax.swing.JLabel();
@@ -132,14 +140,14 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Timbiriche.png"))); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
-        jLabel2.setText("Player 1");
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblNombre.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
+        lblNombre.setText("Player 1");
+        lblNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                lblNombreMouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
+        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
 
         lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Player Azul.png"))); // NOI18N
         jPanel2.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 190, -1, -1));
@@ -199,9 +207,9 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         this.listenerCambioAvatarDerecha();
     }//GEN-LAST:event_flechaDerechaMouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2MouseClicked
+    private void lblNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNombreMouseClicked
+        this.listenerCambiarNombre();
+    }//GEN-LAST:event_lblNombreMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNuevaPartida;
@@ -209,9 +217,9 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel flechaDerecha;
     private javax.swing.JLabel flechaIzquierda;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAvatar;
+    private javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 }
