@@ -15,7 +15,8 @@ public class Partida {
     private List<Jugador> jugadores;
     private Jugador turno;
     private String codigo;
-
+    private Tablero tablero; 
+    
     public List<Jugador> getJugadores() {
         return jugadores;
     }
@@ -39,5 +40,15 @@ public class Partida {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+
+    public Tablero getTablero() {
+        return tablero;
+    }
+
+    public void setTablero() {
+       this.tablero = new Tablero(); 
+    }
+    
+    
     
 }

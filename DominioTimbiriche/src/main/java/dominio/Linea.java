@@ -13,7 +13,8 @@ public class Linea {
     private Punto punto1;
     private Punto punto2;
     private Jugador propietario;
-
+    private Cuadro cuadro; 
+    
     public Punto getPunto1() {
         return punto1;
     }

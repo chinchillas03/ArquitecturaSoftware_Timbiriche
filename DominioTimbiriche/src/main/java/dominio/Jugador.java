@@ -13,7 +13,6 @@ import javax.swing.ImageIcon;
 public class Jugador {
     
     private String nombre;
-    private int puntaje;
     private ImageIcon avatar;
 
     public String getNombre() {
@@ -24,13 +23,6 @@ public class Jugador {
         this.nombre = nombre;
     }
 
-    public int getPuntaje() {
-        return puntaje;
-    }
-
-    public void setPuntaje(int puntaje) {
-        this.puntaje = puntaje;
-    }
 
     public ImageIcon getAvatar() {
         return avatar;

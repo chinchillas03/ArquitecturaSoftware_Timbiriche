@@ -11,7 +11,7 @@ package com.itson.modelos;
 public class ModeloConfiguarPartida {
     
     private String [] dimensiones;
-
+    
     public String[] getDimensiones() {
         return dimensiones;
     }

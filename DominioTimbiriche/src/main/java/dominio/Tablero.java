@@ -14,7 +14,9 @@ public class Tablero {
     
     private Dimension dimension;
     private List<Punto> puntos;
-
+    private List<Cuadro> cuadros; 
+    private List<Linea> lineas; 
+    
     public Dimension getDimension() {
         return dimension;
     }
@@ -29,6 +31,22 @@ public class Tablero {
 
     public void setPuntos(List<Punto> puntos) {
         this.puntos = puntos;
+    }
+
+    public List<Cuadro> getCuadros() {
+        return cuadros;
+    }
+
+    public void setCuadros(List<Cuadro> cuadros) {
+        this.cuadros = cuadros;
+    }
+
+    public List<Linea> getLineas() {
+        return lineas;
+    }
+
+    public void setLineas(List<Linea> lineas) {
+        this.lineas = lineas;
     }
     
 }
