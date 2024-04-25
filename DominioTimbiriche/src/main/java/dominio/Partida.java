@@ -16,6 +16,7 @@ public class Partida {
     private Jugador turno;
     private String codigo;
     private Tablero tablero; 
+    private ColoresJugadores coloresJugadores;
     
     public List<Jugador> getJugadores() {
         return jugadores;
@@ -48,6 +49,15 @@ public class Partida {
     public void setTablero() {
        this.tablero = new Tablero(); 
     }
+
+    public ColoresJugadores getColoresJugadores() {
+        return coloresJugadores;
+    }
+
+    public void setColoresJugadores(ColoresJugadores coloresJugadores) {
+        this.coloresJugadores = coloresJugadores;
+    }
+    
     
     
     
