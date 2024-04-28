@@ -4,6 +4,8 @@
  */
 package com.itson.interfaces;
 
+import dominio.Jugador;
+
 /**
  *
  * @author Usuario
@@ -12,12 +14,13 @@ public interface PantallaPrincipalListener {
 
     void clickBotonUnirsePartida();
 
-    void clickBotonCrearPartida();
+    void clickBotonCrearPartida(Jugador anfitrion);
 
     void cambioAvatarDerecha();
 
     void cambioAvatarIzquierda();
     
     void cambiarNombre();
-
+    
+    Jugador crearJugadorAnfitrion(); 
 }

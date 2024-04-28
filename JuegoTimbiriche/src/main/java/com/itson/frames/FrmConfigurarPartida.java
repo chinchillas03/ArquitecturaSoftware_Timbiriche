@@ -4,7 +4,14 @@
  */
 package com.itson.frames;
 
+import com.itson.dtos.CrearPartidaDTO;
+import javax.swing.*;
 import com.itson.interfaces.ConfigurarPartidaListener;
+import dominio.DimensionTablero;
+import dominio.Jugador;
+import java.awt.HeadlessException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,32 +20,83 @@ import com.itson.interfaces.ConfigurarPartidaListener;
 public class FrmConfigurarPartida extends javax.swing.JFrame {
 
     private ConfigurarPartidaListener listener;
-    
+    private Jugador anfitrion;
+
     /**
      * Creates new form FrmConfigurarPartida
      */
     public FrmConfigurarPartida() {
         initComponents();
+        llenaComboBoxDimensiones();
     }
 
-    private void cerrarPantalla(){
+    public FrmConfigurarPartida(Jugador anfitrion) {
+        initComponents();
+        llenaComboBoxDimensiones();
+        this.anfitrion = anfitrion;
+    }
+
+    private void llenaComboBoxDimensiones() {
+        List<DimensionTablero> dimensiones = new ArrayList<>();
+        dimensiones.add(DimensionTablero.DIEZxDIEZ);
+        dimensiones.add(DimensionTablero.QUINCExQUINCE);
+        dimensiones.add(DimensionTablero.VEINTExVEINTE);
+
+        DefaultComboBoxModel<DimensionTablero> modeloCombo = new DefaultComboBoxModel<>();
+
+        cmbDimension.setModel(modeloCombo);
+
+        modeloCombo.addAll(dimensiones);
+    }
+
+    private void cerrarPantalla() {
         this.setVisible(false);
     }
-    
-    public void setListener(ConfigurarPartidaListener listener){
+
+    public void setListener(ConfigurarPartidaListener listener) {
         this.listener = listener;
     }
-    
-    private void listenerCrearPartida (){
-        this.listener.clickBotonCrearPartida();
+
+    private void listenerCrearPartida() {
+        // this.listener.clickBotonCrearPartida();
+
+        CrearPartidaDTO crearPartidaDTO = new CrearPartidaDTO(
+                obtenerCodigoPartida(),
+                obtenerDimensionPartida(),
+                obtieneJugadorPartida());
+        this.listener.clickBotonCrearPartida(crearPartidaDTO);
         this.cerrarPantalla();
+
     }
-    
-    private void listenerVolverInicio (){
+
+    private Jugador obtieneJugadorPartida() {
+        return this.anfitrion;
+    }
+
+    private String obtenerCodigoPartida() {
+        return String.valueOf(txtCodigo.getText());
+    }
+    public static void main(String[] args) {
+        
+    }
+    private DimensionTablero obtenerDimensionPartida() {
+        DimensionTablero dimension = null; 
+        if (cmbDimension.getSelectedItem().equals(DimensionTablero.DIEZxDIEZ)) {
+            dimension = DimensionTablero.DIEZxDIEZ;
+        } else if (cmbDimension.getSelectedItem().equals(DimensionTablero.QUINCExQUINCE)) {
+            dimension = DimensionTablero.QUINCExQUINCE;
+        } else if (cmbDimension.getSelectedItem().equals(DimensionTablero.VEINTExVEINTE)) {
+            dimension = DimensionTablero.VEINTExVEINTE;
+        }
+
+        return dimension;
+    }
+
+    private void listenerVolverInicio() {
         this.listener.clickBotonVolverInicio();
         this.cerrarPantalla();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,7 +107,7 @@ public class FrmConfigurarPartida extends javax.swing.JFrame {
     private void initComponents() {
 
         txtCodigo = new javax.swing.JTextField();
-        cmbDimension = new javax.swing.JComboBox<>();
+        cmbDimension = new javax.swing.JComboBox<DimensionTablero>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -59,8 +117,6 @@ public class FrmConfigurarPartida extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-
-        cmbDimension.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Dimension:");
@@ -164,15 +220,21 @@ public class FrmConfigurarPartida extends javax.swing.JFrame {
         this.listenerCrearPartida();
     }//GEN-LAST:event_btnCrearPartidaActionPerformed
 
+
     private void btnVolverInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverInicioActionPerformed
         // TODO add your handling code here:
         this.listenerVolverInicio();
     }//GEN-LAST:event_btnVolverInicioActionPerformed
+    private void asignaModeloAComboBox() {
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCrearPartida;
     private javax.swing.JButton btnVolverInicio;
-    private javax.swing.JComboBox<String> cmbDimension;
+    private javax.swing.JComboBox<DimensionTablero> cmbDimension;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

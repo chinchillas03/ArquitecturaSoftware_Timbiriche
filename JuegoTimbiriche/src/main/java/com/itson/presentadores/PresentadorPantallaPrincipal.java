@@ -7,10 +7,9 @@ package com.itson.presentadores;
 import com.itson.frames.FrmPantallaPrincipal;
 import com.itson.interfaces.PantallaPrincipalListener;
 import com.itson.modelos.ModeloPantallaPrincipal;
-import java.util.LinkedList;
+import dominio.Jugador;
 import java.util.List;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,11 +18,14 @@ import javax.swing.JOptionPane;
  */
 public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
     
-    private final FrmPantallaPrincipal view = new FrmPantallaPrincipal();
+    private final FrmPantallaPrincipal view ; 
     private final ModeloPantallaPrincipal model = new ModeloPantallaPrincipal();
     private int indexAvatar = 0; 
+    private Jugador anfitrion; 
     
     public PresentadorPantallaPrincipal(){
+        anfitrion  = crearJugadorAnfitrion(); 
+        view = new FrmPantallaPrincipal(anfitrion); 
         this.view.setListener(this);
         this.view.repaint();
         cargarAvatares();
@@ -36,8 +38,8 @@ public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
     }
 
     @Override
-    public void clickBotonCrearPartida() {
-        new PresentadorConfigurarPartida().mostrarPantallaConfigurarPartida();
+    public void clickBotonCrearPartida(Jugador anfitrion) {
+        new PresentadorConfigurarPartida(anfitrion).mostrarPantallaConfigurarPartida();
    }
 
     @Override
@@ -87,5 +89,12 @@ public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
        
         
     }
+    
+    public Jugador crearJugadorAnfitrion()
+    {
+        return model.crearJugadorAnfitrion(); 
+    }
+
+
 }
         

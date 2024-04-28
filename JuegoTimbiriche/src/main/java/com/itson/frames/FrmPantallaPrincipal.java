@@ -5,10 +5,8 @@
 package com.itson.frames;
 
 import com.itson.interfaces.PantallaPrincipalListener;
-import java.util.List;
-import javax.swing.ImageIcon;
+import dominio.Jugador;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,25 +15,28 @@ import javax.swing.JOptionPane;
 public class FrmPantallaPrincipal extends javax.swing.JFrame {
 
     private PantallaPrincipalListener listener;
-    
+    private Jugador anfitrion; 
     /**
      * Creates new form FrmPantallaPrincipal
      */
-    public FrmPantallaPrincipal() {        
+    public FrmPantallaPrincipal(Jugador anfitrion) {        
         initComponents();
         cargarAvatares();
+        this.anfitrion = anfitrion;
     }
+
+
 
     public void setListener(PantallaPrincipalListener listener) {
         this.listener = listener;
     }
     
-    private void cerrarPantalla(){
+    private void cerrarPantalla(){  
         this.setVisible(false);
     }
     
     private void listenerNuevaPartida (){
-        this.listener.clickBotonCrearPartida();
+        this.listener.clickBotonCrearPartida(anfitrion);
         this.cerrarPantalla();
     }
     

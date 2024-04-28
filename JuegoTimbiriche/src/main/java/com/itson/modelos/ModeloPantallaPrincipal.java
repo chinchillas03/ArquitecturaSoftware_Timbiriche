@@ -4,6 +4,7 @@
  */
 package com.itson.modelos;
 
+import dominio.Jugador;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -37,4 +38,9 @@ public class ModeloPantallaPrincipal {
         avatares.add(new ImageIcon(getClass().getResource("/Player Verde.png")));
     }
   
+    
+    public Jugador crearJugadorAnfitrion()
+    {
+        return new Jugador(); 
+    }
 }

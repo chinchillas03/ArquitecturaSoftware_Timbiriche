@@ -4,6 +4,8 @@
  */
 package com.itson.interfaces;
 
+import com.itson.dtos.CrearPartidaDTO;
+
 /**
  *
  * @author Usuario
@@ -11,6 +13,6 @@ package com.itson.interfaces;
 public interface ConfigurarPartidaListener {
     
     void clickBotonVolverInicio();
-    void clickBotonCrearPartida();
+    void clickBotonCrearPartida(CrearPartidaDTO creaePartidaDTO);
     
 }
