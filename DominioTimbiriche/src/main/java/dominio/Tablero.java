@@ -11,17 +11,24 @@ import java.util.List;
  * @author Usuario
  */
 public class Tablero {
-    
-    private Dimension dimension;
+
+    private DimensionTablero dimension;
     private List<Punto> puntos;
-    private List<Cuadro> cuadros; 
-    private List<Linea> lineas; 
-    
-    public Dimension getDimension() {
+    private List<Cuadro> cuadros;
+    private List<Linea> lineas;
+
+    public Tablero crearTablero(DimensionTablero dimension) {
+
+        Tablero nuevoTablero = new Tablero();
+        nuevoTablero.setDimension(dimension);
+        return nuevoTablero; 
+    }
+
+    public DimensionTablero getDimension() {
         return dimension;
     }
 
-    public void setDimension(Dimension dimension) {
+    public void setDimension(DimensionTablero dimension) {
         this.dimension = dimension;
     }
 
@@ -48,5 +55,5 @@ public class Tablero {
     public void setLineas(List<Linea> lineas) {
         this.lineas = lineas;
     }
-    
+
 }

@@ -8,7 +8,7 @@ package dominio;
  *
  * @author Usuario
  */
-public enum Dimension {
+public enum DimensionTablero {
     DIEZxDIEZ,
     QUINCExQUINCE,
     VEINTExVEINTE
