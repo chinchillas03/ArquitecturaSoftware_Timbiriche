@@ -24,8 +24,10 @@ public class prueba2 {
         try {
             int puerto1 = 9998;
             Servidor servidor = new Servidor(puerto1);
-            Cliente cliente = new Cliente();
+            Cliente cliente = new Cliente();            
+            Protocolo protocolo = new Protocolo();
             servidor.setCliente(cliente);
+            servidor.setProtocolo(protocolo);
             cliente.setMiServer(servidor);          
             cliente.conectar("localhost", 9999);
             

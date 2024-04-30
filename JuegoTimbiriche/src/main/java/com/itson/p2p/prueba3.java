@@ -18,12 +18,17 @@ public class prueba3 {
     public static void main(String[] args) {
         // TODO code application logic here
         try {
-            Servidor server = new Servidor(9999);
-            Cliente cliente = new Cliente();
+            int puerto1 = 9997;
+            Servidor servidor = new Servidor(puerto1);
+            Cliente cliente = new Cliente();            
             Protocolo protocolo = new Protocolo();
-            server.setCliente(cliente);
-            server.setProtocolo(protocolo);
+            servidor.setCliente(cliente);
+            servidor.setProtocolo(protocolo);
+            cliente.setMiServer(servidor);          
+            cliente.conectar("localhost", 9998);
+            
         } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
     

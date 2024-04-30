@@ -8,6 +8,8 @@ import com.itson.dtos.ConexionDTO;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.net.Socket;
 import java.util.LinkedList;
 import java.util.List;
@@ -90,7 +92,8 @@ public class Cliente implements Runnable{
                 if (servidoresNodo.getPuerto() == this.miServer.getNodo().getPuerto()) {
                 } else if (servidoresNodo.getPuerto() == nodoPrincipal.getPuerto()) {
                 } else {
-                    String ip = "192.168.1.66";
+                    String ip = InetAddress.getLocalHost().getHostAddress();
+                    System.out.println(ip);
                     int puerto = servidoresNodo.getPuerto();
                     ConexionDTO dat = miServer.getNodo();
                     if (socket2 == null) {
