@@ -45,7 +45,7 @@ public class FrmLobby extends javax.swing.JFrame {
     
     public void actualizarDatosPartida(Partida partida){
         lblCodigo.setText(partida.getCodigo());
-        lblDimension.setText(partida.getTablero().toString());
+        lblDimension.setText(partida.getTablero().getDimension().toString());
     }
     /**
      * This method is called from within the constructor to initialize the form.

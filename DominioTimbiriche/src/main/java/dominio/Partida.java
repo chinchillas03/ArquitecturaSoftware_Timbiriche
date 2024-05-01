@@ -33,13 +33,14 @@ public class Partida {
         jugadores.add(jugador);
 
         // crear un tablero con las dimensiones requeridas y asignarselo a la partida
-        nuevaPartida.setTablero(crearTableroPartida(dimension));
 
+        nuevaPartida.setTablero(crearTableroPartida(dimension));
+        
         return nuevaPartida;
     }
 
     public Tablero crearTableroPartida(DimensionTablero dimension) {
-        tablero = new Tablero(); 
+        this.tablero = new Tablero(); 
         return this.tablero.crearTablero(dimension);
     }
 
@@ -88,7 +89,7 @@ public class Partida {
     }
 
     public void setTablero(Tablero tablero) {
-        this.tablero = new Tablero();
+        this.tablero = tablero;
     }
 
 

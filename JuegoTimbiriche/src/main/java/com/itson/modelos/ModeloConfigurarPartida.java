@@ -38,8 +38,8 @@ public class ModeloConfigurarPartida {
 
     
     public Partida solicitudNuevaPartida(String codigo, DimensionTablero dimension, Jugador jugadorAnfitrion) {
-        
-        return partida.solicitudNuevaPartida(codigo, dimension, jugadorAnfitrion);
+        Partida partidaSolicitada = partida.solicitudNuevaPartida(codigo, dimension, jugadorAnfitrion);
+        return partidaSolicitada; 
     }
 
     private boolean validaCodigoPartida(String codigo) {
