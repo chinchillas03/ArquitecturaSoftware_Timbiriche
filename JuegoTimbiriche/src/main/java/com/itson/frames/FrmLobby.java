@@ -5,6 +5,7 @@
 package com.itson.frames;
 
 import com.itson.interfaces.LobbyListener;
+import dominio.Partida;
 
 /**
  *
@@ -13,12 +14,14 @@ import com.itson.interfaces.LobbyListener;
 public class FrmLobby extends javax.swing.JFrame {
 
     private LobbyListener listener;
-    
+  
     /**
      * Creates new form FrmLobby
+     * 
      */
     public FrmLobby() {
         initComponents();
+       
     }
 
     public void setListener (LobbyListener listener){
@@ -39,6 +42,11 @@ public class FrmLobby extends javax.swing.JFrame {
         this.cerrarPantalla();
     }
     
+    
+    public void actualizarDatosPartida(Partida partida){
+        lblCodigo.setText(partida.getCodigo());
+        lblDimension.setText(partida.getTablero().toString());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,12 +59,22 @@ public class FrmLobby extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         btnIniciar = new javax.swing.JButton();
         btnVolverInicio = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        lblCodigo = new javax.swing.JLabel();
+        lblDimension = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        lblNombre1 = new javax.swing.JLabel();
+        lblAvatar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnIniciar.setBackground(new java.awt.Color(255, 0, 0));
         btnIniciar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -67,6 +85,7 @@ public class FrmLobby extends javax.swing.JFrame {
                 btnIniciarActionPerformed(evt);
             }
         });
+        jPanel1.add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 363, 156, 45));
 
         btnVolverInicio.setBackground(new java.awt.Color(51, 102, 255));
         btnVolverInicio.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -77,29 +96,43 @@ public class FrmLobby extends javax.swing.JFrame {
                 btnVolverInicioActionPerformed(evt);
             }
         });
+        jPanel1.add(btnVolverInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, 45));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnVolverInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(44, 44, 44))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(363, Short.MAX_VALUE)
-                .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(btnVolverInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
-        );
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setText("Datos de la partida");
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setText("Código");
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setText("Dimensión");
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, -1));
+
+        lblCodigo.setText("*Codigo aquí*");
+        jPanel4.add(lblCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+
+        lblDimension.setText("*Dimension aquí*");
+        jPanel4.add(lblDimension, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 210, 220));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblNombre1.setText("Nombre del Jugador");
+        jPanel3.add(lblNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+
+        lblAvatar.setText("Avatar del Jugador");
+        jPanel3.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 200, 200));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,7 +141,7 @@ public class FrmLobby extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +166,16 @@ public class FrmLobby extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciar;
     private javax.swing.JButton btnVolverInicio;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lblAvatar;
+    private javax.swing.JLabel lblCodigo;
+    private javax.swing.JLabel lblDimension;
+    private javax.swing.JLabel lblNombre1;
     // End of variables declaration//GEN-END:variables
 }

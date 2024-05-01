@@ -15,8 +15,8 @@ public class Partida {
     private List<Jugador> jugadores;
     private Jugador turno;
     private String codigo;
-<<<<<<< HEAD
-    private Tablero tablero;
+    private Tablero tablero; 
+    private ColoresJugadores coloresJugadores;
 
     public Partida solicitudNuevaPartida(String codigo, DimensionTablero dimension, Jugador jugador) {
         // creación de la nueva partida sin datos
@@ -57,11 +57,8 @@ public class Partida {
         }
     }
 
-=======
-    private Tablero tablero; 
-    private ColoresJugadores coloresJugadores;
     
->>>>>>> e620e36602f5a61041a9f5cb23366a4665196ba8
+
     public List<Jugador> getJugadores() {
         return jugadores;
     }
@@ -94,13 +91,13 @@ public class Partida {
         this.tablero = new Tablero();
     }
 
-<<<<<<< HEAD
+
     @Override
     public String toString() {
         return "Partida{" + "jugadores=" + jugadores + ", turno=" + turno + ", codigo=" + codigo + ", tablero=" + tablero + '}';
     }
 
-=======
+
     public ColoresJugadores getColoresJugadores() {
         return coloresJugadores;
     }
@@ -109,8 +106,5 @@ public class Partida {
         this.coloresJugadores = coloresJugadores;
     }
     
-    
-    
-    
->>>>>>> e620e36602f5a61041a9f5cb23366a4665196ba8
+
 }

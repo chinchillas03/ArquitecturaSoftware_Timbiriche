@@ -5,6 +5,7 @@
 package com.itson.modelos;
 
 import com.itson.dtos.CrearPartidaDTO;
+import com.itson.presentadores.PresentadorLobby;
 import dominio.DimensionTablero;
 import dominio.Jugador;
 import dominio.Partida;
@@ -13,9 +14,10 @@ import dominio.Partida;
  *
  * @author Usuario
  */
-public class ModeloConfiguarPartida {
+public class ModeloConfigurarPartida {
 
     Partida partida ;
+    PresentadorLobby pLobby = new PresentadorLobby();
     
     public void crearNuevaPartida(CrearPartidaDTO crearPartidaDTO) {
         if (validaDimensionTablero(crearPartidaDTO.getDimensionPartida())
@@ -23,19 +25,17 @@ public class ModeloConfiguarPartida {
 
             Partida nuevaPartida = solicitudNuevaPartida(crearPartidaDTO.getCodigoPartida(),
             crearPartidaDTO.getDimensionPartida(),
-            crearPartidaDTO.getJugadorAnfitrion());
-            System.out.println("Here ");
-            mostrarDatosNuevaPartidaCreada(nuevaPartida);
+            crearPartidaDTO.getJugadorAnfitrion());   
+            pLobby.mostrarPantallaLobby();
+            pLobby.mostrarDatosPartida(nuevaPartida);
         }else{
             System.out.println("Not created yet");
+            
         }
-        System.out.println("");
+       
     }
     
-    public void mostrarDatosNuevaPartidaCreada(Partida nuevaPartida){
-        
-        System.out.println(nuevaPartida.toString());
-    }
+
     
     public Partida solicitudNuevaPartida(String codigo, DimensionTablero dimension, Jugador jugadorAnfitrion) {
         

@@ -7,7 +7,7 @@ package com.itson.presentadores;
 import com.itson.dtos.CrearPartidaDTO;
 import com.itson.frames.FrmConfigurarPartida;
 import com.itson.interfaces.ConfigurarPartidaListener;
-import com.itson.modelos.ModeloConfiguarPartida;
+import com.itson.modelos.ModeloConfigurarPartida;
 import dominio.Jugador;
 
 /**
@@ -16,7 +16,7 @@ import dominio.Jugador;
  */
 public class PresentadorConfigurarPartida implements ConfigurarPartidaListener {
 
-    private ModeloConfiguarPartida model = new ModeloConfiguarPartida();
+    private ModeloConfigurarPartida model = new ModeloConfigurarPartida();
     private FrmConfigurarPartida view = new FrmConfigurarPartida();
     private Jugador anfitrion; 
     public PresentadorConfigurarPartida(Jugador anfitrion) {

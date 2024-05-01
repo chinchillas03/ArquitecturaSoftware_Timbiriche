@@ -6,7 +6,9 @@ package com.itson.presentadores;
 
 import com.itson.frames.FrmLobby;
 import com.itson.interfaces.LobbyListener;
+import com.itson.modelos.ModeloConfigurarPartida;
 import com.itson.modelos.ModeloLobby;
+import dominio.Partida;
 
 /**
  *
@@ -16,10 +18,13 @@ public class PresentadorLobby implements LobbyListener{
 
     private ModeloLobby model = new ModeloLobby();
     private FrmLobby view = new FrmLobby();
-
+    private ModeloConfigurarPartida modelConfPartida;
+    
     public PresentadorLobby() {
         this.view.setListener(this);
+        
     }
+    
     
     @Override
     public void solicitarInicio() {
@@ -41,8 +46,14 @@ public class PresentadorLobby implements LobbyListener{
         
     }
     
+   
     public void mostrarPantallaLobby (){
-        this.view.setVisible(true);
+        view.setVisible(true);
+    }
+    
+    
+    public void mostrarDatosPartida(Partida partida){
+        view.actualizarDatosPartida(partida);
     }
     
 }

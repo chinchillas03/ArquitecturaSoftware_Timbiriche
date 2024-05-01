@@ -9,7 +9,6 @@ import javax.swing.*;
 import com.itson.interfaces.ConfigurarPartidaListener;
 import dominio.DimensionTablero;
 import dominio.Jugador;
-import java.awt.HeadlessException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -76,9 +75,7 @@ public class FrmConfigurarPartida extends javax.swing.JFrame {
     private String obtenerCodigoPartida() {
         return String.valueOf(txtCodigo.getText());
     }
-    public static void main(String[] args) {
-        
-    }
+  
     private DimensionTablero obtenerDimensionPartida() {
         DimensionTablero dimension = null; 
         if (cmbDimension.getSelectedItem().equals(DimensionTablero.DIEZxDIEZ)) {
