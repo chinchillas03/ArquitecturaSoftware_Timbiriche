@@ -52,6 +52,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
  
     public void cargarAvatares(){
         this.lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Player Azul.png")));
+        this.lblNombre.setForeground(Color.BLUE);
         this.repaint();
     }
     
