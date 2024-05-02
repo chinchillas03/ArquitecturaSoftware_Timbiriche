@@ -5,6 +5,7 @@
 package com.itson.modelos;
 
 import dominio.Jugador;
+import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -14,33 +15,29 @@ import javax.swing.ImageIcon;
  * @author Usuario
  */
 public class ModeloPantallaPrincipal {
-    
-    private String nombre;
-    private List<ImageIcon> avatares;
-
-    public String getNombre() {
-        return nombre;
-    }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
+        crearJugadorAnfitrion().setNombre(nombre);
+    }
+
+    public void setAvatar(ImageIcon avatar) {
+        crearJugadorAnfitrion().setAvatar(avatar);
     }
 
     public List<ImageIcon> getAvatares() {
-        return avatares;
+        return crearJugadorAnfitrion().getAvatares();
     }
 
-    public void setAvatares() {
-        this.avatares = new LinkedList<>();
-        avatares.add(new ImageIcon(getClass().getResource("/Player Azul.png")));
-        avatares.add(new ImageIcon(getClass().getResource("/Player Rojo.png")));
-        avatares.add(new ImageIcon(getClass().getResource("/Player Amarillo.png")));
-        avatares.add(new ImageIcon(getClass().getResource("/Player Verde.png")));
+    public void setColor(Color color) {
+        crearJugadorAnfitrion().setColorJugador(color);
     }
-  
-    
-    public Jugador crearJugadorAnfitrion()
-    {
-        return new Jugador(); 
+
+    public List<Color> getColores() {
+       return crearJugadorAnfitrion().cargarColores();
     }
+
+    public Jugador crearJugadorAnfitrion() {
+        return new Jugador();
+    }
+
 }

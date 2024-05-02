@@ -5,15 +5,19 @@
 package com.itson.frames;
 
 import com.itson.interfaces.PantallaPrincipalListener;
+import com.itson.presentadores.PresentadorPantallaPrincipal;
 import dominio.Jugador;
+import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Usuario
  */
 public class FrmPantallaPrincipal extends javax.swing.JFrame {
-
+    
     private PantallaPrincipalListener listener;
     private Jugador anfitrion; 
     /**
@@ -22,6 +26,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     public FrmPantallaPrincipal(Jugador anfitrion) {        
         initComponents();
         cargarAvatares();
+        
         this.anfitrion = anfitrion;
     }
 
@@ -64,11 +69,36 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
       
     public void listenerCambiarNombre(){
         this.listener.cambiarNombre();
-    }  
+    }
+    
     
       public JLabel getLblNombre() {
         return this.lblNombre;
     }
+      
+    public String abrirDlgCambioNombre(){
+        
+        String nombre = JOptionPane.showInputDialog(this, "Ingresa tu nombre");
+        if(nombre == null){
+            JOptionPane.showMessageDialog(this, "Ingresa un nombre valido");
+            return null;
+        }
+        return nombre;
+    }  
+    
+    public void actualizarNombre(String nombre){
+        this.getLblNombre().setText(nombre);
+    }
+      
+      public ImageIcon cambiarAvatar(ImageIcon avatar, Color color){
+            getLblAvatar().setIcon(avatar);
+            getLblNombre().setForeground(color);
+            this.repaint();
+            return null;
+      }
+      
+      
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,6 +117,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         lblAvatar = new javax.swing.JLabel();
         flechaIzquierda = new javax.swing.JLabel();
         flechaDerecha = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -98,6 +129,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         btnNuevaPartida.setForeground(new java.awt.Color(255, 255, 255));
         btnNuevaPartida.setText("Nueva Partida");
         btnNuevaPartida.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNuevaPartida.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNuevaPartida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevaPartidaActionPerformed(evt);
@@ -109,6 +141,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         btnUnirsePartida.setForeground(new java.awt.Color(255, 255, 255));
         btnUnirsePartida.setText("Buscar Partida");
         btnUnirsePartida.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnUnirsePartida.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnUnirsePartida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUnirsePartidaActionPerformed(evt);
@@ -136,6 +169,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
                 .addGap(185, 185, 185))
         );
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Timbiriche.png"))); // NOI18N
@@ -148,12 +182,13 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
                 lblNombreMouseClicked(evt);
             }
         });
-        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
 
         lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Player Azul.png"))); // NOI18N
         jPanel2.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 190, -1, -1));
 
         flechaIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Flecha Izquierda.png"))); // NOI18N
+        flechaIzquierda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         flechaIzquierda.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 flechaIzquierdaMouseClicked(evt);
@@ -162,12 +197,22 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jPanel2.add(flechaIzquierda, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
         flechaDerecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Flecha Derecha.png"))); // NOI18N
+        flechaDerecha.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         flechaDerecha.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 flechaDerechaMouseClicked(evt);
             }
         });
         jPanel2.add(flechaDerecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/5251816.png"))); // NOI18N
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 145, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,7 +235,9 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
 
     private void btnNuevaPartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaPartidaActionPerformed
         // TODO add your handling code here:
+        
         this.listenerNuevaPartida();
+        
     }//GEN-LAST:event_btnNuevaPartidaActionPerformed
 
     private void btnUnirsePartidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUnirsePartidaActionPerformed
@@ -209,8 +256,12 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_flechaDerechaMouseClicked
 
     private void lblNombreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblNombreMouseClicked
-        this.listenerCambiarNombre();
+        
     }//GEN-LAST:event_lblNombreMouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        this.listenerCambiarNombre();
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnNuevaPartida;
@@ -218,6 +269,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel flechaDerecha;
     private javax.swing.JLabel flechaIzquierda;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblAvatar;

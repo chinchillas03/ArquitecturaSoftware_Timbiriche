@@ -5,6 +5,7 @@
 package dominio;
 
 import java.awt.Color;
+import java.util.LinkedList;
 import java.util.List;
 import javax.swing.ImageIcon;
 
@@ -19,6 +20,7 @@ public class Jugador {
     private TipoJugador tipoJugador;
     private EstadoJugador estado;
     private Color colorJugador;
+    private ImageIcon avatar;
 
     public String getNombre() {
         return nombre;
@@ -60,6 +62,41 @@ public class Jugador {
         this.colorJugador = colorJugador;
     }
 
+    public ImageIcon getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(ImageIcon avatar) {
+        this.avatar = avatar;
+    }
+    
+    public List<ImageIcon> setAvatares() {
+        List<ImageIcon> avatares = new LinkedList<>();
+        
+        avatares.add(new ImageIcon(getClass().getResource("/Player Azul.png")));
+        avatares.add(new ImageIcon(getClass().getResource("/Player Rojo.png")));
+        avatares.add(new ImageIcon(getClass().getResource("/Player Amarillo.png")));
+        avatares.add(new ImageIcon(getClass().getResource("/Player Verde.png")));
+        
+        return avatares;
+    }
+    
+    public List<ImageIcon> getAvatares(){
+        return setAvatares();
+    }
+
+    public List<Color> cargarColores(){
+        List<Color> colores = new LinkedList<>();
+        
+        colores.add(Color.BLUE);
+        colores.add(Color.RED);
+        colores.add(Color.YELLOW);
+        colores.add(Color.GREEN);
+        
+        return colores;
+    }
+    
+   
 
     
 }
