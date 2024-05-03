@@ -46,7 +46,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     }
     
     private void listenerUnirsePartida (){
-        this.listener.clickBotonUnirsePartida();
+        this.listener.clickBotonUnirsePartida(anfitrion);
         this.cerrarPantalla();
     }
  
@@ -177,13 +177,14 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, -1, -1));
 
         lblNombre.setFont(new java.awt.Font("Gadugi", 1, 24)); // NOI18N
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNombre.setText("Player 1");
         lblNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblNombreMouseClicked(evt);
             }
         });
-        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, -1, -1));
+        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
 
         lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Player Azul.png"))); // NOI18N
         jPanel2.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 190, -1, -1));
@@ -213,7 +214,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
                 jLabel2MouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 145, -1, -1));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

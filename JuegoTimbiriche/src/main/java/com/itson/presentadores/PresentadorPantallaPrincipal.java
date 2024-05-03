@@ -39,8 +39,8 @@ public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
 
     
     @Override
-    public void clickBotonUnirsePartida() {
-        new PresentadorUnirsePartida().mostrarPantallaUnirsePartida();      
+    public void clickBotonUnirsePartida(Jugador anfitrion) {
+        new PresentadorUnirsePartida(anfitrion).mostrarPantallaUnirsePartida();      
     }
 
     @Override
@@ -101,6 +101,9 @@ public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
     }
     
     
+    public Jugador trasladarJugador(){
+        return anfitrion;
+    }
 
 }
         

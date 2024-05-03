@@ -17,20 +17,21 @@ import dominio.Partida;
 public class ModeloConfigurarPartida {
 
     Partida partida ;
-    PresentadorLobby pLobby = new PresentadorLobby();
     
-    public void crearNuevaPartida(CrearPartidaDTO crearPartidaDTO) {
+    
+    public Partida crearNuevaPartida(CrearPartidaDTO crearPartidaDTO) {
+
         if (validaDimensionTablero(crearPartidaDTO.getDimensionPartida())
                 && validaCodigoPartida(crearPartidaDTO.getCodigoPartida())) {
 
             Partida nuevaPartida = solicitudNuevaPartida(crearPartidaDTO.getCodigoPartida(),
             crearPartidaDTO.getDimensionPartida(),
-            crearPartidaDTO.getJugadorAnfitrion());   
-            pLobby.mostrarPantallaLobby();
-            pLobby.mostrarDatosPartida(nuevaPartida);
+            crearPartidaDTO.getJugadorAnfitrion()); 
+            return nuevaPartida;
+            
         }else{
             System.out.println("Not created yet");
-            
+            return null;
         }
        
     }
@@ -41,7 +42,7 @@ public class ModeloConfigurarPartida {
         Partida partidaSolicitada = partida.solicitudNuevaPartida(codigo, dimension, jugadorAnfitrion);
         return partidaSolicitada; 
     }
-
+   
     private boolean validaCodigoPartida(String codigo) {
         partida = new Partida(); 
         if (partida.validaCodigoPartida(codigo)) {

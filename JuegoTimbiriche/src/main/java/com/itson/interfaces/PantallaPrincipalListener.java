@@ -12,7 +12,7 @@ import dominio.Jugador;
  */
 public interface PantallaPrincipalListener {
 
-    void clickBotonUnirsePartida();
+    void clickBotonUnirsePartida(Jugador anfitrion);
 
     void clickBotonCrearPartida(Jugador anfitrion);
 

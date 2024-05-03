@@ -7,6 +7,7 @@ package com.itson.presentadores;
 import com.itson.frames.FrmUnirsePartida;
 import com.itson.interfaces.UnirsePartidaListener;
 import com.itson.modelos.ModeloUnirsePartida;
+import dominio.Jugador;
 
 /**
  *
@@ -16,14 +17,16 @@ public class PresentadorUnirsePartida implements UnirsePartidaListener{
 
     private FrmUnirsePartida view = new FrmUnirsePartida();
     private ModeloUnirsePartida model = new ModeloUnirsePartida();
+    private Jugador anfitrion;
 
-    public PresentadorUnirsePartida() {
+    public PresentadorUnirsePartida(Jugador anfitrion) {
         this.view.setListener(this);
+        this.anfitrion = anfitrion;
     }
     
     @Override
     public void clickBotonUnirsePartida() {
-        new PresentadorLobby().mostrarPantallaLobby();
+        new PresentadorLobby(anfitrion).mostrarPantallaLobby();
     }
 
     @Override

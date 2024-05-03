@@ -18,4 +18,6 @@ public interface LobbyListener {
 
     void cambioAvatarIzquierda();
     
+    void actualizarDatosJugador();
+    
 }

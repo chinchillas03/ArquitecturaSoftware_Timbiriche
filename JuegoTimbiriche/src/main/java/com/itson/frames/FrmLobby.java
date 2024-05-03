@@ -5,7 +5,10 @@
 package com.itson.frames;
 
 import com.itson.interfaces.LobbyListener;
+import com.itson.presentadores.PresentadorLobby;
+import dominio.Jugador;
 import dominio.Partida;
+import javax.swing.text.View;
 
 /**
  *
@@ -15,13 +18,19 @@ public class FrmLobby extends javax.swing.JFrame {
 
     private LobbyListener listener;
   
+  
     /**
      * Creates new form FrmLobby
      * 
      */
+    
     public FrmLobby() {
-        initComponents();
+        initComponents(); 
        
+        
+       
+        
+        
     }
 
     public void setListener (LobbyListener listener){
@@ -42,10 +51,22 @@ public class FrmLobby extends javax.swing.JFrame {
         this.cerrarPantalla();
     }
     
-    
+   
     public void actualizarDatosPartida(Partida partida){
         lblCodigo.setText(partida.getCodigo());
         lblDimension.setText(partida.getTablero().getDimension().toString());
+    }
+    
+    public void actualizarDatosJugador(){
+        this.listener.actualizarDatosJugador();
+    }
+    
+    public void mostrarJugador(Jugador jugador){
+        lblNombre.setText(jugador.getNombre());
+        lblNombre.setForeground(jugador.getColorJugador());
+        lblAvatar.setText("");
+        lblAvatar.setIcon(jugador.getAvatar());
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,7 +88,7 @@ public class FrmLobby extends javax.swing.JFrame {
         lblDimension = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        lblNombre1 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         lblAvatar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -126,13 +147,15 @@ public class FrmLobby extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNombre1.setText("Nombre del Jugador");
-        jPanel3.add(lblNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("Nombre del Jugador");
+        jPanel3.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, -1));
 
+        lblAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAvatar.setText("Avatar del Jugador");
-        jPanel3.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        jPanel3.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 30, 250, 230));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 200, 200));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 270));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,6 +199,6 @@ public class FrmLobby extends javax.swing.JFrame {
     private javax.swing.JLabel lblAvatar;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblDimension;
-    private javax.swing.JLabel lblNombre1;
+    private javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 }

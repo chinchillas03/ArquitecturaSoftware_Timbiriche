@@ -32,10 +32,13 @@ public class PresentadorConfigurarPartida implements ConfigurarPartidaListener {
 
     @Override
     public void clickBotonCrearPartida(CrearPartidaDTO crearPartidaDTO) {
-        model.crearNuevaPartida(crearPartidaDTO);
+        
+        new PresentadorLobby(anfitrion).mostrarDatosPartida(model.crearNuevaPartida(crearPartidaDTO));
     }
 
     public void mostrarPantallaConfigurarPartida() {
         this.view.setVisible(true);
     }
+    
+    
 }
