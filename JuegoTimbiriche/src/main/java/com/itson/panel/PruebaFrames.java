@@ -16,7 +16,7 @@ public class PruebaFrames {
     public static void main(String[] args) {
         // TODO code application logic here}
         PanelFrameDiez panelFrame = new PanelFrameDiez(); 
-        PanelTableroDiez panelTablero = new PanelTableroDiez();
+        PanelTableroVeinte panelTablero = new PanelTableroVeinte();
         PanelPuntosDiez panelPuntos = new PanelPuntosDiez(); 
         PanelJugadoresDiez panelJugadores = new PanelJugadoresDiez();
         FrameContenedorDiez frame = new FrameContenedorDiez(panelTablero, panelPuntos, panelFrame, panelJugadores);

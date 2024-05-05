@@ -8,6 +8,7 @@ import com.itson.interfaces.PantallaPrincipalListener;
 import com.itson.presentadores.PresentadorPantallaPrincipal;
 import dominio.Jugador;
 import java.awt.Color;
+import java.util.Random;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -26,8 +27,11 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
     public FrmPantallaPrincipal(Jugador anfitrion) {        
         initComponents();
         cargarAvatares();
+        lblNombre.setText(randomizarNombre());
         
         this.anfitrion = anfitrion;
+        
+        
     }
 
 
@@ -81,11 +85,22 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         
         String nombre = JOptionPane.showInputDialog(this, "Ingresa tu nombre");
         if(nombre == null){
-            JOptionPane.showMessageDialog(this, "Ingresa un nombre valido");
-            return null;
+            nombre = lblNombre.getText();
+            return nombre;
         }
         return nombre;
     }  
+    
+    public String asignarNombreNulo(String nombre){
+        nombre = lblNombre.getText();
+        return nombre;
+    }
+    
+    public static String randomizarNombre() {
+        Random random = new Random();
+        int randomNumber = random.nextInt(1000) + 1; 
+        return "Player" + randomNumber;
+    }
     
     public void actualizarNombre(String nombre){
         this.getLblNombre().setText(nombre);
@@ -187,7 +202,7 @@ public class FrmPantallaPrincipal extends javax.swing.JFrame {
         jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, -1));
 
         lblAvatar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Player Azul.png"))); // NOI18N
-        jPanel2.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 190, -1, -1));
+        jPanel2.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
         flechaIzquierda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Flecha Izquierda.png"))); // NOI18N
         flechaIzquierda.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

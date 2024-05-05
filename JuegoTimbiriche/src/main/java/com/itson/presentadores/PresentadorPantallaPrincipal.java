@@ -17,42 +17,45 @@ import javax.swing.JOptionPane;
  *
  * @author Usuario
  */
-public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
-    
-    private final FrmPantallaPrincipal view; 
+public class PresentadorPantallaPrincipal implements PantallaPrincipalListener {
+
+    private final FrmPantallaPrincipal view;
     private final ModeloPantallaPrincipal model = new ModeloPantallaPrincipal();
     private int indexAvatar = 0;
     private int indexColor = 0;
-    private Jugador anfitrion; 
+    private Jugador anfitrion;
     List<ImageIcon> avatares = model.getAvatares();
     List<Color> colores = model.getColores();
-    
-    
-    public PresentadorPantallaPrincipal(){
-        anfitrion  = crearJugadorAnfitrion(); 
-        view = new FrmPantallaPrincipal(anfitrion); 
+
+    public PresentadorPantallaPrincipal() {
+        anfitrion = crearJugadorAnfitrion();
+
+        view = new FrmPantallaPrincipal(anfitrion);
         this.view.setListener(this);
         this.view.repaint();
-        
-       
+
     }
 
-    
     @Override
     public void clickBotonUnirsePartida(Jugador anfitrion) {
-        new PresentadorUnirsePartida(anfitrion).mostrarPantallaUnirsePartida();      
+       if (anfitrion.getNombre() == null) {
+            anfitrion.setNombre(view.asignarNombreNulo(anfitrion.getNombre()));
+        }
+        new PresentadorUnirsePartida(anfitrion).mostrarPantallaUnirsePartida();
     }
 
     @Override
     public void clickBotonCrearPartida(Jugador anfitrion) {
-        
+          if (anfitrion.getNombre() == null) {
+            anfitrion.setNombre(view.asignarNombreNulo(anfitrion.getNombre()));
+        }
         new PresentadorConfigurarPartida(anfitrion).mostrarPantallaConfigurarPartida();
-        
-   }
+
+    }
 
     @Override
     public void cambioAvatarDerecha() {
-       if (avatares != null && !avatares.isEmpty()) {
+        if (avatares != null && !avatares.isEmpty()) {
             indexAvatar = (indexAvatar + 1) % model.getAvatares().size();
             indexColor = (indexColor + 1) % model.getColores().size();
             mostrarAvatarActual();
@@ -61,49 +64,53 @@ public class PresentadorPantallaPrincipal implements PantallaPrincipalListener{
 
     @Override
     public void cambioAvatarIzquierda() {
-         if (avatares != null && !avatares.isEmpty()) {
+        if (avatares != null && !avatares.isEmpty()) {
             indexAvatar = (indexAvatar - 1 + model.getAvatares().size()) % model.getAvatares().size();
             indexColor = (indexColor - 1 + model.getColores().size()) % model.getColores().size();
             mostrarAvatarActual();
-        } 
+        }
     }
-    
-    public void mostrarPantallaPrincipal(){
+
+    public void mostrarPantallaPrincipal() {
         this.view.setVisible(true);
     }
 
- 
-    
-        private ImageIcon mostrarAvatarActual() {
-          
+    private ImageIcon mostrarAvatarActual() {
+
         if (avatares != null && !avatares.isEmpty()) {
             ImageIcon avatarActual = avatares.get(indexAvatar);
             Color colorActual = colores.get(indexColor);
             anfitrion.setAvatar(avatarActual);
             anfitrion.setColorJugador(colorActual);
-            return view.cambiarAvatar(avatarActual, colorActual);  
+            return view.cambiarAvatar(avatarActual, colorActual);
         }
-        
+
         return null;
-        
-}
+
+    }
 
     @Override
-    public void cambiarNombre() {  
-       String nombre =  view.abrirDlgCambioNombre();
-       anfitrion.setNombre(nombre);
-       view.actualizarNombre(nombre);
+    public void cambiarNombre() {
+        String nombre = view.abrirDlgCambioNombre();
+        if (nombre == null) {
+            anfitrion.setNombre(view.asignarNombreNulo(nombre));
+        } else {
+            anfitrion.setNombre(nombre);
+            view.actualizarNombre(nombre);
+        }
     }
-    
-    public Jugador crearJugadorAnfitrion()
-    {
-        return model.crearJugadorAnfitrion(); 
+
+    public Jugador crearJugadorAnfitrion() {
+        ImageIcon avatarActual = avatares.get(indexAvatar);
+        Color colorActual = colores.get(indexColor);
+        Jugador jugador = model.crearJugadorAnfitrion();
+        jugador.setAvatar(avatarActual);
+        jugador.setColorJugador(colorActual);
+        return jugador;
     }
-    
-    
-    public Jugador trasladarJugador(){
+
+    public Jugador trasladarJugador() {
         return anfitrion;
     }
 
 }
-        
