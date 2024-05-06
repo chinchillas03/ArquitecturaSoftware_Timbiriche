@@ -5,6 +5,7 @@
 package dominio;
 
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -13,7 +14,7 @@ import javax.swing.ImageIcon;
  *
  * @author Usuario
  */
-public class Jugador {
+public class Jugador implements Serializable{
     
     private String nombre;
     private List<Cuadro> cuadros;

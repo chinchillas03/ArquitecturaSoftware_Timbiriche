@@ -4,13 +4,16 @@
  */
 package dominio;
 
+import com.itson.dtos.UnirsePartidaDTO;
+import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList; 
+import javax.swing.ImageIcon;
 /**
  *
  * @author Usuario
  */
-public class Partida {
+public class Partida implements Serializable{
 
     private List<Jugador> jugadores;
     private Jugador turno;
@@ -58,8 +61,16 @@ public class Partida {
         }
     }
 
-    
+    public UnirsePartidaDTO crearDTO (){
+        UnirsePartidaDTO dto = new UnirsePartidaDTO();
+        dto.setPartida(this);
+        return dto;
+    }
 
+    public void agregarJugador(Jugador jugador){
+        jugadores.add(jugador);
+    }
+    
     public List<Jugador> getJugadores() {
         return jugadores;
     }

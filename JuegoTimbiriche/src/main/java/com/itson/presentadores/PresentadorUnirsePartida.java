@@ -4,10 +4,15 @@
  */
 package com.itson.presentadores;
 
+import com.itson.dtos.ConexionDTO;
 import com.itson.frames.FrmUnirsePartida;
 import com.itson.interfaces.UnirsePartidaListener;
 import com.itson.modelos.ModeloUnirsePartida;
+import com.itson.p2p.Cliente;
+import com.itson.p2p.Protocolo;
+import com.itson.p2p.Servidor;
 import dominio.Jugador;
+import java.io.IOException;
 
 /**
  *
@@ -25,8 +30,29 @@ public class PresentadorUnirsePartida implements UnirsePartidaListener{
     }
     
     @Override
-    public void clickBotonUnirsePartida() {
-        new PresentadorLobby(anfitrion).mostrarPantallaLobby();
+    public void clickBotonUnirsePartida(String ip, String puerto) {
+        model.setIp(ip);
+        model.setpuerto(puerto);
+        model.setJugador(anfitrion);
+        this.crearConexion();
+    }
+    
+    public void crearConexion(){
+        try {
+            int puerto1 = 9997;
+            Servidor servidor = new Servidor(puerto1);
+            Cliente cliente = new Cliente();            
+            Protocolo protocolo = new Protocolo();
+            servidor.setCliente(cliente);
+            servidor.setProtocolo(protocolo);
+            cliente.setMiServer(servidor);  
+            cliente.setLobby(new PresentadorLobby());
+            ConexionDTO nodo = new ConexionDTO(servidor.getServerSocket().getInetAddress().toString(), servidor.getServerSocket().getLocalPort(), this.model.getJugador());
+            servidor.setNodo(nodo);
+            cliente.conectar(this.model.getIp(), Integer.parseInt(this.model.getpuerto()));           
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 
     @Override

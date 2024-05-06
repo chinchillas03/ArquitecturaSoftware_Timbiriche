@@ -5,11 +5,13 @@
 package com.itson.p2p;
 
 import com.itson.dtos.ConexionDTO;
+import dominio.Partida;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -22,12 +24,30 @@ public class Servidor implements Runnable{
     private Cliente cliente;
     private ConexionDTO nodo;
     private Protocolo protocolo;
+    private List<ConexionDTO> nodosClientes;
+    private Partida partida;
      
     public Servidor (int puerto) throws IOException{
         serverSocket = new ServerSocket(puerto);
-        this.nodo = new ConexionDTO(serverSocket.getInetAddress().toString(), serverSocket.getLocalPort());
+        nodosClientes = new LinkedList<>();
         Thread hilo = new Thread(this);
         hilo.start();
+    }
+
+    public List<ConexionDTO> getNodosClientes() {
+        return nodosClientes;
+    }
+
+    public void setNodosClientes(List<ConexionDTO> nodosClientes) {
+        this.nodosClientes = nodosClientes;
+    }
+
+    public Partida getPartida() {
+        return partida;
+    }
+
+    public void setPartida(Partida partida) {
+        this.partida = partida;
     }
 
     public ServerSocket getServerSocket() {
@@ -89,6 +109,7 @@ public class Servidor implements Runnable{
                             nodos.add(this.nodo);
                         }
                         cliente.agregarNodo(nodoNuevo);
+                        nodosClientes.add(nodoNuevo);
                         out.writeObject(nodos);
                     }
                 } catch (IOException | ClassNotFoundException e) {

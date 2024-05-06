@@ -8,6 +8,7 @@ import com.itson.interfaces.LobbyListener;
 import com.itson.presentadores.PresentadorLobby;
 import dominio.Jugador;
 import dominio.Partida;
+import java.util.List;
 import javax.swing.text.View;
 
 /**
@@ -55,17 +56,18 @@ public class FrmLobby extends javax.swing.JFrame {
     public void actualizarDatosPartida(Partida partida){
         lblCodigo.setText(partida.getCodigo());
         lblDimension.setText(partida.getTablero().getDimension().toString());
+        lblNombre.setText(partida.getJugadores().get(0).getNombre());
     }
     
-    public void actualizarDatosJugador(){
-        this.listener.actualizarDatosJugador();
+    public void actualizarDatosJugador(Partida partida){
+        this.listener.actualizarDatosJugador(partida);
     }
     
-    public void mostrarJugador(Jugador jugador){
-        lblNombre.setText(jugador.getNombre());
-        lblNombre.setForeground(jugador.getColorJugador());
+    public void mostrarJugador(List<Jugador> jugadores){
+        lblNombre.setText(jugadores.get(0).getNombre());
+        lblNombre.setForeground(jugadores.get(0).getColorJugador());
         lblAvatar.setText("");
-        lblAvatar.setIcon(jugador.getAvatar());
+        lblAvatar.setIcon(jugadores.get(0).getAvatar());
         
     }
     /**

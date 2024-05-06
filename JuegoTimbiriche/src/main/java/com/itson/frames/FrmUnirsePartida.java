@@ -29,8 +29,13 @@ public class FrmUnirsePartida extends javax.swing.JFrame {
         this.setVisible(false);
     }
     
+//    private void capturarDatos(){
+//        String ip = txtIp.getText();
+//        String puerto = txtPuerto.getText();
+//    }
+    
     private void listenerUnirsePartida(){
-        this.listener.clickBotonUnirsePartida();
+        this.listener.clickBotonUnirsePartida(txtIp.getText(), txtPuerto.getText());
         this.cerrarPantalla();
     }
     
@@ -50,8 +55,8 @@ public class FrmUnirsePartida extends javax.swing.JFrame {
 
         btnUnirsePartida = new javax.swing.JButton();
         btnVolverInicio = new javax.swing.JButton();
-        txtIP = new javax.swing.JTextField();
-        txtCodigo = new javax.swing.JTextField();
+        txtPuerto = new javax.swing.JTextField();
+        txtIp = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -78,14 +83,14 @@ public class FrmUnirsePartida extends javax.swing.JFrame {
             }
         });
 
-        txtIP.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtIP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtPuerto.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtPuerto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
-        txtCodigo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        txtCodigo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtIp.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        txtIp.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Codigo");
+        jLabel1.setText("Puerto");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel2.setText("IP");
@@ -94,10 +99,6 @@ public class FrmUnirsePartida extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(236, 236, 236))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -106,8 +107,8 @@ public class FrmUnirsePartida extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(95, 95, 95)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCodigo)
-                            .addComponent(txtIP, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))))
+                            .addComponent(txtIp)
+                            .addComponent(txtPuerto, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(175, Short.MAX_VALUE)
@@ -117,7 +118,11 @@ public class FrmUnirsePartida extends javax.swing.JFrame {
                         .addGap(175, 175, 175))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(205, 205, 205))))
+                        .addGap(206, 206, 206))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(235, 235, 235))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,13 +130,13 @@ public class FrmUnirsePartida extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnVolverInicio)
                 .addGap(21, 21, 21)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(txtIp, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtIP, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPuerto, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
                 .addComponent(btnUnirsePartida, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35))
@@ -156,7 +161,7 @@ public class FrmUnirsePartida extends javax.swing.JFrame {
     private javax.swing.JButton btnVolverInicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtIP;
+    private javax.swing.JTextField txtIp;
+    private javax.swing.JTextField txtPuerto;
     // End of variables declaration//GEN-END:variables
 }

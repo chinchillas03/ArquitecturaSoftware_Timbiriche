@@ -24,11 +24,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -38,8 +33,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtCodigo" max="32767" attributes="0"/>
-                          <Component id="txtIP" pref="310" max="32767" attributes="0"/>
+                          <Component id="txtIp" max="32767" attributes="0"/>
+                          <Component id="txtPuerto" pref="310" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -54,9 +49,14 @@
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="205" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="206" max="-2" attributes="0"/>
                   </Group>
               </Group>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="235" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,13 +66,13 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="btnVolverInicio" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="txtIp" min="-2" pref="45" max="-2" attributes="0"/>
+              <EmptySpace pref="24" max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="txtCodigo" min="-2" pref="45" max="-2" attributes="0"/>
-              <EmptySpace pref="30" max="32767" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="txtIP" min="-2" pref="45" max="-2" attributes="0"/>
+              <Component id="txtPuerto" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
               <Component id="btnUnirsePartida" min="-2" pref="45" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
@@ -115,7 +115,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVolverInicioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtIP">
+    <Component class="javax.swing.JTextField" name="txtPuerto">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
@@ -123,7 +123,7 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtCodigo">
+    <Component class="javax.swing.JTextField" name="txtIp">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="18" style="1"/>
@@ -136,7 +136,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Codigo"/>
+        <Property name="text" type="java.lang.String" value="Puerto"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">

@@ -4,21 +4,36 @@
  */
 package com.itson.modelos;
 
+import com.itson.p2p.Cliente;
+import com.itson.p2p.Protocolo;
+import com.itson.p2p.Servidor;
+import dominio.Jugador;
+import java.io.IOException;
+
 /**
  *
  * @author Usuario
  */
 public class ModeloUnirsePartida {
     
-    private String codigo;
+    private String puerto;
     private String ip;
+    private Jugador jugador;
 
-    public String getCodigo() {
-        return codigo;
+    public Jugador getJugador() {
+        return jugador;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
+    public void setJugador(Jugador jugador) {
+        this.jugador = jugador;
+    }
+
+    public String getpuerto() {
+        return puerto;
+    }
+
+    public void setpuerto(String puerto) {
+        this.puerto = puerto;
     }
 
     public String getIp() {
@@ -27,6 +42,5 @@ public class ModeloUnirsePartida {
 
     public void setIp(String ip) {
         this.ip = ip;
-    }
-    
+    } 
 }

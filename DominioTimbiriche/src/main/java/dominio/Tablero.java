@@ -4,13 +4,14 @@
  */
 package dominio;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *
  * @author Usuario
  */
-public class Tablero {
+public class Tablero implements Serializable{
 
     private DimensionTablero dimension;
     private List<Punto> puntos;

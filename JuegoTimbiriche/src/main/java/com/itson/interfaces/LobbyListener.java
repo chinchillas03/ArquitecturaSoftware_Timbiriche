@@ -4,6 +4,8 @@
  */
 package com.itson.interfaces;
 
+import dominio.Partida;
+
 /**
  *
  * @author Usuario
@@ -18,6 +20,6 @@ public interface LobbyListener {
 
     void cambioAvatarIzquierda();
     
-    void actualizarDatosJugador();
+    void actualizarDatosJugador(Partida partida);
     
 }

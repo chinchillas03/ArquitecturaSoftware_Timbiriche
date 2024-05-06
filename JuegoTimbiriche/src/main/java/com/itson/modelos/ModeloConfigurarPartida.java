@@ -5,10 +5,14 @@
 package com.itson.modelos;
 
 import com.itson.dtos.CrearPartidaDTO;
+import com.itson.p2p.Cliente;
+import com.itson.p2p.Protocolo;
+import com.itson.p2p.Servidor;
 import com.itson.presentadores.PresentadorLobby;
 import dominio.DimensionTablero;
 import dominio.Jugador;
 import dominio.Partida;
+import java.io.IOException;
 
 /**
  *
@@ -35,6 +39,14 @@ public class ModeloConfigurarPartida {
         }
        
     }
+
+    public Partida getPartida() {
+        return partida;
+    }
+
+    public void setPartida(Partida partida) {
+        this.partida = partida;
+    }
     
 
     
@@ -58,5 +70,5 @@ public class ModeloConfigurarPartida {
         }
         return false;
     }
-
+    
 }

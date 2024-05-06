@@ -5,6 +5,8 @@
 package com.itson.p2p;
 
 import com.itson.dtos.ConexionDTO;
+import com.itson.dtos.UnirsePartidaDTO;
+import com.itson.presentadores.PresentadorLobby;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -23,7 +25,8 @@ public class Cliente implements Runnable{
     private Socket socket;
     private Socket socket2;
     private Socket socket3;
-    private Servidor miServer;    
+    private Servidor miServer;  
+    private PresentadorLobby lobby;
     private List<ConexionDTO> servidoresNodos;
     
     public Cliente (){
@@ -35,6 +38,21 @@ public class Cliente implements Runnable{
     @Override
     public void run() {
         
+    }
+
+    public void setearLobby(UnirsePartidaDTO unirse){
+        unirse.getPartida().agregarJugador(miServer.getNodo().getJugador());
+        if (this.lobby != null) {
+            this.lobby.setearLobbyConexion(unirse);
+        }
+    }
+    
+    public PresentadorLobby getLobby() {
+        return lobby;
+    }
+
+    public void setLobby(PresentadorLobby lobby) {
+        this.lobby = lobby;
     }
 
     public List<ConexionDTO> getServidoresNodos() {
@@ -78,6 +96,8 @@ public class Cliente implements Runnable{
             for (ConexionDTO nodoConocido : nodosConocidos) {
                 System.out.println("IP: " + nodoConocido.getIp() + ", Puerto: " + nodoConocido.getPuerto());
             }
+            this.miServer.setPartida(nodosConocidos.get(0).getPartida());
+            this.setearLobby(miServer.getPartida().crearDTO());
             this.setServidoresNodos(nodosConocidos);            
             ConexionDTO nodoPrincipal = new ConexionDTO(ip, puerto);            
             this.conectarOtrosNodos(nodoPrincipal);

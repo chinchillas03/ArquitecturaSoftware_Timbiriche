@@ -9,6 +9,6 @@ package com.itson.interfaces;
  * @author Usuario
  */
 public interface UnirsePartidaListener {
-    void clickBotonUnirsePartida();
+    void clickBotonUnirsePartida(String ip, String puerto);
     void clickBotonSalir();
 }

@@ -4,11 +4,16 @@
  */
 package com.itson.presentadores;
 
+import com.itson.dtos.ConexionDTO;
 import com.itson.dtos.CrearPartidaDTO;
 import com.itson.frames.FrmConfigurarPartida;
 import com.itson.interfaces.ConfigurarPartidaListener;
 import com.itson.modelos.ModeloConfigurarPartida;
+import com.itson.p2p.Cliente;
+import com.itson.p2p.Protocolo;
+import com.itson.p2p.Servidor;
 import dominio.Jugador;
+import java.io.IOException;
 
 /**
  *
@@ -32,10 +37,24 @@ public class PresentadorConfigurarPartida implements ConfigurarPartidaListener {
 
     @Override
     public void clickBotonCrearPartida(CrearPartidaDTO crearPartidaDTO) {
-        
-        new PresentadorLobby(anfitrion).mostrarDatosPartida(model.crearNuevaPartida(crearPartidaDTO));
+        new PresentadorLobby(anfitrion).mostrarDatosPartida(model.crearNuevaPartida(crearPartidaDTO));       
+        this.crearServer();
     }
 
+        public void crearServer(){
+        try {
+            Servidor server = new Servidor(9999);
+            Cliente cliente = new Cliente();
+            Protocolo protocolo = new Protocolo();
+            server.setCliente(cliente);
+            server.setProtocolo(protocolo);
+            ConexionDTO nodo = new ConexionDTO(server.getServerSocket().getInetAddress().toString(), server.getServerSocket().getLocalPort(), this.model.getPartida());
+            server.setNodo(nodo);
+            cliente.setMiServer(server);
+        } catch (IOException e) {
+        }
+    }
+    
     public void mostrarPantallaConfigurarPartida() {
         this.view.setVisible(true);
     }
