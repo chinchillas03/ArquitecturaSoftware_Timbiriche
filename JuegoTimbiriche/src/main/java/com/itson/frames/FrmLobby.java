@@ -56,7 +56,7 @@ public class FrmLobby extends javax.swing.JFrame {
     public void actualizarDatosPartida(Partida partida){
         lblCodigo.setText(partida.getCodigo());
         lblDimension.setText(partida.getTablero().getDimension().toString());
-        lblNombre.setText(partida.getJugadores().get(0).getNombre());
+        lblNombre1.setText(partida.getJugadores().get(0).getNombre());
     }
     
     public void actualizarDatosJugador(Partida partida){
@@ -64,10 +64,10 @@ public class FrmLobby extends javax.swing.JFrame {
     }
     
     public void mostrarJugador(List<Jugador> jugadores){
-        lblNombre.setText(jugadores.get(0).getNombre());
-        lblNombre.setForeground(jugadores.get(0).getColorJugador());
-        lblAvatar.setText("");
-        lblAvatar.setIcon(jugadores.get(0).getAvatar());
+        lblNombre1.setText(jugadores.get(0).getNombre());
+        lblNombre1.setForeground(jugadores.get(0).getColorJugador());
+        lblAvatar1.setText("");
+        lblAvatar1.setIcon(jugadores.get(0).getAvatar());
         
     }
     /**
@@ -90,8 +90,17 @@ public class FrmLobby extends javax.swing.JFrame {
         lblDimension = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        lblNombre = new javax.swing.JLabel();
-        lblAvatar = new javax.swing.JLabel();
+        lblNombre1 = new javax.swing.JLabel();
+        lblAvatar1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        lblNombre2 = new javax.swing.JLabel();
+        lblAvatar2 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        lblNombre3 = new javax.swing.JLabel();
+        lblAvatar3 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        lblNombre4 = new javax.swing.JLabel();
+        lblAvatar4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -149,15 +158,57 @@ public class FrmLobby extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNombre.setText("Nombre del Jugador");
-        jPanel3.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 260, -1));
+        lblNombre1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre1.setText("Nombre del Jugador 1");
+        jPanel3.add(lblNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 7, 260, -1));
 
-        lblAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAvatar.setText("Avatar del Jugador");
-        jPanel3.add(lblAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 30, 250, 230));
+        lblAvatar1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAvatar1.setText("Avatar del Jugador 1");
+        jPanel3.add(lblAvatar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 30, 250, 230));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 270));
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel5.setPreferredSize(new java.awt.Dimension(260, 270));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblNombre2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre2.setText("Nombre del Jugador 2");
+        jPanel5.add(lblNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 7, 250, -1));
+
+        lblAvatar2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAvatar2.setText("Avatar del Jugador 2");
+        jPanel5.add(lblAvatar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 240));
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel6.setPreferredSize(new java.awt.Dimension(260, 260));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblNombre3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre3.setText("Nombre del Jugador 3");
+        jPanel6.add(lblNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 260, -1));
+
+        lblAvatar3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAvatar3.setText("Avatar del Jugador 3");
+        jPanel6.add(lblAvatar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 230));
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblNombre4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre4.setText("Nombre del Jugador 4");
+        lblNombre4.setToolTipText("");
+        jPanel7.add(lblNombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 260, -1));
+
+        lblAvatar4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAvatar4.setText("Avatar del Jugador 4");
+        jPanel7.add(lblAvatar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 260, 230));
+
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 260, 260));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -198,9 +249,18 @@ public class FrmLobby extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JLabel lblAvatar;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JLabel lblAvatar1;
+    private javax.swing.JLabel lblAvatar2;
+    private javax.swing.JLabel lblAvatar3;
+    private javax.swing.JLabel lblAvatar4;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblDimension;
-    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblNombre1;
+    private javax.swing.JLabel lblNombre2;
+    private javax.swing.JLabel lblNombre3;
+    private javax.swing.JLabel lblNombre4;
     // End of variables declaration//GEN-END:variables
 }
