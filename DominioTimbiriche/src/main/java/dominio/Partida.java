@@ -4,11 +4,11 @@
  */
 package dominio;
 
-import com.itson.dtos.UnirsePartidaDTO;
+
+import com.itson.dto.UnirsePartidaDTO;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList; 
-import javax.swing.ImageIcon;
 /**
  *
  * @author Usuario

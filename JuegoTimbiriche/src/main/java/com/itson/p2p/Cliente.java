@@ -28,7 +28,7 @@ public class Cliente implements Runnable{
     private Servidor miServer;  
     private PresentadorLobby lobby;
     private List<ConexionDTO> servidoresNodos;
-    
+    private UnirsePartidaDTO unirsePartidaDTOConvertido; 
     public Cliente (){
         this.servidoresNodos = new LinkedList<>();
         Thread hilo = new Thread(this);
@@ -97,7 +97,13 @@ public class Cliente implements Runnable{
                 System.out.println("IP: " + nodoConocido.getIp() + ", Puerto: " + nodoConocido.getPuerto());
             }
             this.miServer.setPartida(nodosConocidos.get(0).getPartida());
-            this.setearLobby(miServer.getPartida().crearDTO());
+            unirsePartidaDTOConvertido = new UnirsePartidaDTO();
+            
+            
+            unirsePartidaDTOConvertido.setPartida(miServer.getPartida().crearDTO().getPartida());
+            
+            this.setearLobby(unirsePartidaDTOConvertido);
+            
             this.setServidoresNodos(nodosConocidos);            
             ConexionDTO nodoPrincipal = new ConexionDTO(ip, puerto);            
             this.conectarOtrosNodos(nodoPrincipal);
