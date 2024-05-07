@@ -4,6 +4,7 @@
  */
 package com.itson.presentadores;
 
+import com.itson.dtos.SolicitarInicioDTO;
 import com.itson.dtos.UnirsePartidaDTO;
 import com.itson.frames.FrmLobby;
 import com.itson.interfaces.LobbyListener;
@@ -37,8 +38,8 @@ public class PresentadorLobby implements LobbyListener {
     }
 
     @Override
-    public void solicitarInicio() {
-        new PresentadorJuego().mostrarPantallaJuego();
+    public void solicitarInicio(SolicitarInicioDTO solicitarInicioDTO ) {
+        new PresentadorJuego().iniciarPantallaJuego();
     }
 
     @Override

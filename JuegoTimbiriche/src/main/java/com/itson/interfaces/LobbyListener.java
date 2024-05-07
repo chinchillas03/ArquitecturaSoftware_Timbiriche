@@ -4,6 +4,7 @@
  */
 package com.itson.interfaces;
 
+import com.itson.dtos.SolicitarInicioDTO;
 import dominio.Partida;
 
 /**
@@ -12,7 +13,7 @@ import dominio.Partida;
  */
 public interface LobbyListener {
 
-    void solicitarInicio();
+    void solicitarInicio(SolicitarInicioDTO solicitarInicioDTO );
 
     void salir();
 

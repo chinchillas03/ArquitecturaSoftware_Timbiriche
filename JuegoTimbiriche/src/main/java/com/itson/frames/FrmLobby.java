@@ -4,6 +4,7 @@
  */
 package com.itson.frames;
 
+import com.itson.dtos.SolicitarInicioDTO;
 import com.itson.interfaces.LobbyListener;
 import com.itson.presentadores.PresentadorLobby;
 import dominio.Jugador;
@@ -18,58 +19,53 @@ import javax.swing.text.View;
 public class FrmLobby extends javax.swing.JFrame {
 
     private LobbyListener listener;
-  
-  
+    private SolicitarInicioDTO solicitar = new SolicitarInicioDTO();
+
     /**
      * Creates new form FrmLobby
-     * 
+     *
      */
-    
     public FrmLobby() {
-        initComponents(); 
-       
-        
-       
-        
-        
+        initComponents();
     }
 
-    public void setListener (LobbyListener listener){
+    public void setListener(LobbyListener listener) {
         this.listener = listener;
     }
-    
-    private void cerrarPantalla(){
+
+    private void cerrarPantalla() {
         this.setVisible(false);
     }
-    
-    private void listenerIniciar(){
-        this.listener.solicitarInicio();
+
+    private void listenerIniciar() {
+        SolicitarInicioDTO solicitarInicioDTO = new SolicitarInicioDTO();
+        this.listener.solicitarInicio(solicitarInicioDTO);
         this.cerrarPantalla();
     }
-    
-    private void listenerVolverInicio(){
+
+    private void listenerVolverInicio() {
         this.listener.salir();
         this.cerrarPantalla();
     }
-    
-   
-    public void actualizarDatosPartida(Partida partida){
+
+    public void actualizarDatosPartida(Partida partida) {
         lblCodigo.setText(partida.getCodigo());
         lblDimension.setText(partida.getTablero().getDimension().toString());
         lblNombre1.setText(partida.getJugadores().get(0).getNombre());
     }
-    
-    public void actualizarDatosJugador(Partida partida){
+
+    public void actualizarDatosJugador(Partida partida) {
         this.listener.actualizarDatosJugador(partida);
     }
-    
-    public void mostrarJugador(List<Jugador> jugadores){
+
+    public void mostrarJugador(List<Jugador> jugadores) {
         lblNombre1.setText(jugadores.get(0).getNombre());
         lblNombre1.setForeground(jugadores.get(0).getColorJugador());
         lblAvatar1.setText("");
         lblAvatar1.setIcon(jugadores.get(0).getAvatar());
-        
+
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

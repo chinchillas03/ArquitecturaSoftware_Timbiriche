@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  * @author xfs85
  */
 public class PanelTableroQuince extends JPanel {
-
+    
     public PanelTableroQuince() {
 
         setBackground(Color.WHITE);

@@ -31,8 +31,14 @@ public class PresentadorJuego implements JuegoListener{
         new PresentadorGanador().mostrarPantallaGanador();
     }
     
+    
+    public void iniciarPantallaJuego(){
+        new FrmJuego().setVisible(true);
+    }
     public void mostrarPantallaJuego(){
         this.view.setVisible(true);
     }
     
+ 
+
 }
