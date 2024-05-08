@@ -4,6 +4,7 @@
  */
 package com.itson.dtos;
 
+import dominio.ColoresJugadores;
 import dominio.Jugador;
 import dominio.Partida;
 import java.io.Serializable;
@@ -18,7 +19,6 @@ public class ConexionDTO implements Serializable{
     private int puerto;
     private Jugador jugador;
     private Partida partida;
-
     public String getIp() {
         return ip;
     }

@@ -21,7 +21,7 @@ public class Partida implements Serializable{
     private Tablero tablero; 
     private ColoresJugadores coloresJugadores;
 
-    public Partida solicitudNuevaPartida(String codigo, DimensionTablero dimension, Jugador jugador) {
+    public Partida solicitudNuevaPartida(String codigo, DimensionTablero dimension, Jugador jugador, ColoresJugadores coloresJugadores) {
         // creación de la nueva partida sin datos
         Partida nuevaPartida = new Partida();
 
@@ -31,7 +31,9 @@ public class Partida implements Serializable{
         jugadores = new ArrayList<Jugador>(); 
         // establecer una lista de jugadores a la patida
         nuevaPartida.setJugadores(jugadores);
-
+        
+        nuevaPartida.setColoresJugadores(coloresJugadores);
+        
         // agregar a la lista de jugadores al jugador anfitrion de la partida
         jugadores.add(jugador);
 

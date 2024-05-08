@@ -5,20 +5,11 @@
 package com.itson.frames;
 
 import com.itson.interfaces.JuegoListener;
-import dominio.Punto;
+import dominio.ColoresJugadores;
+import dominio.Jugador;
 import dominio.Tablero;
-import java.awt.BasicStroke;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.HeadlessException;
-import java.awt.Point;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.geom.Ellipse2D;
-import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -27,25 +18,33 @@ import javax.swing.JOptionPane;
 public class FrmJuego extends javax.swing.JFrame {
 
     private JuegoListener listener;
+    private ColoresJugadores colores;
 
     /**
      * Creates new form FrmJuego
      */
-    public FrmJuego() throws HeadlessException {
-        
-    }
-
-    public FrmJuego(Tablero tablero) {
+    public FrmJuego(JuegoListener listener) {
         initComponents();
-        PanelTableroDiez panel = new PanelTableroDiez(tablero);
-        panel.run();
-        panel.setBounds(0, 0, 900, 700);
-        add(panel);
-                
+        if (listener != null) {
+            PanelTableroDiez panelTablero = new PanelTableroDiez(listener);
+            panelTablero.run();
+            panelTablero.setBounds(0, 0, 900, 700);
+            add(panelTablero);
+        } else {
+            System.err.println("El listener es nulo");
+        }
     }
 
     public void setListener(JuegoListener listener) {
         this.listener = listener;
+    }
+
+    public ColoresJugadores getColores() {
+        return colores;
+    }
+
+    public void setColores(ColoresJugadores colores) {
+        this.colores = colores;
     }
 
     private void cerrarPantalla() {

@@ -12,7 +12,9 @@ import com.itson.modelos.ModeloConfigurarPartida;
 import com.itson.p2p.Cliente;
 import com.itson.p2p.Protocolo;
 import com.itson.p2p.Servidor;
+import dominio.ColoresJugadores;
 import dominio.Jugador;
+import java.awt.Color;
 import java.io.IOException;
 
 /**
@@ -24,6 +26,7 @@ public class PresentadorConfigurarPartida implements ConfigurarPartidaListener {
     private ModeloConfigurarPartida model = new ModeloConfigurarPartida();
     private FrmConfigurarPartida view = new FrmConfigurarPartida();
     private Jugador anfitrion; 
+    private PresentadorLobby presentadorLobby;
     public PresentadorConfigurarPartida(Jugador anfitrion) {
         view = new FrmConfigurarPartida(anfitrion);
         this.view.setListener(this);
@@ -37,7 +40,14 @@ public class PresentadorConfigurarPartida implements ConfigurarPartidaListener {
 
     @Override
     public void clickBotonCrearPartida(CrearPartidaDTO crearPartidaDTO) {
-        new PresentadorLobby(anfitrion).mostrarDatosPartida(model.crearNuevaPartida(crearPartidaDTO));       
+        ColoresJugadores coloresJugadores = new ColoresJugadores();
+        
+        coloresJugadores.addColor(anfitrion.getNombre(), anfitrion.getColorJugador());
+        crearPartidaDTO.setColoresJugadores(coloresJugadores);
+        presentadorLobby = new PresentadorLobby(anfitrion); 
+        presentadorLobby.establecerPartidaLobby(model.crearNuevaPartida(crearPartidaDTO));
+        presentadorLobby.mostrarDatosPartida(model.crearNuevaPartida(crearPartidaDTO));   
+        
         this.crearServer();
     }
 

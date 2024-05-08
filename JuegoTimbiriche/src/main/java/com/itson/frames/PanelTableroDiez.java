@@ -4,6 +4,9 @@
  */
 package com.itson.frames;
 
+import com.itson.interfaces.JuegoListener;
+import dominio.ColoresJugadores;
+import dominio.Jugador;
 import dominio.Punto;
 import dominio.Tablero;
 import java.awt.BasicStroke;
@@ -26,13 +29,24 @@ public class PanelTableroDiez extends JPanel implements Runnable {
 
     List<Ellipse2D.Double> objetosPuntos;
     Ellipse2D.Double currentPoint;
-
-    public PanelTableroDiez(Tablero tablero) {
+    private ColoresJugadores colores;
+    private List<Jugador> jugadores;
+    
+    private Tablero tablero;
+    private JuegoListener juegoListener; 
+    
+    public PanelTableroDiez(JuegoListener listener) {
+        this.juegoListener = listener;
+        this.tablero = juegoListener.obtenerPartida().getTablero();
+        this.colores = juegoListener.obtenerPartida().getColoresJugadores();
+        this.jugadores = juegoListener.obtenerPartida().getJugadores();
         mostrarTableroJuego(tablero);
-
     }
+    
+
 
     public void mostrarTableroJuego(Tablero tablero) {
+
         this.objetosPuntos = new ArrayList<>();
         for (Punto punto : tablero.getPuntos()) {
             Ellipse2D.Double puntoGrafico = punto.getPuntoGrafico(); // Usa el método del punto actual
@@ -63,7 +77,7 @@ public class PanelTableroDiez extends JPanel implements Runnable {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-               
+
                 handleClick(e.getPoint());
             }
 
@@ -80,23 +94,56 @@ public class PanelTableroDiez extends JPanel implements Runnable {
                 if (this.currentPoint == null) {
                     establecerPuntoActual(punto);
                 } else if (this.currentPoint != null) {
-                    Graphics2D g2d = (Graphics2D) getGraphics();
-                    g2d.setStroke(new BasicStroke(3));
-                    g2d.drawLine((int) this.currentPoint.getX()+15,
-                            (int) this.currentPoint.getY()+15,
-                            (int) punto.getX()+15,
-                            (int) punto.getY()+15);
-                    this.currentPoint = null; 
-                    return true; 
+
+                    for (Jugador jugador : jugadores) {
+
+                        if (colores.obtenerColor(jugador.getNombre()) != null) {
+                            
+                            Graphics2D g2d = (Graphics2D) getGraphics();
+                            g2d.setStroke(new BasicStroke(3));
+                            g2d.setColor(colores.obtenerColor(jugador.getNombre()));
+                            g2d.drawLine((int) this.currentPoint.getX() + 15,
+                                    (int) this.currentPoint.getY() + 15,
+                                    (int) punto.getX() + 15,
+                                    (int) punto.getY() + 15);
+                            this.currentPoint = null;
+                            return true;
+                        }
+                    }
+
                 }
-                
-            }   
+
+            }
 
         }
-        return false; 
+        return false;
     }
 
     public void establecerPuntoActual(Ellipse2D.Double punto) {
         this.currentPoint = punto;
     }
+
+    public ColoresJugadores getColores() {
+        return colores;
+    }
+
+    public void setColores(ColoresJugadores colores) {
+        this.colores = colores;
+    }
+
+    public List<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public void setJugadores(List<Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
+
+    public JuegoListener getJuegoListener() {
+        return juegoListener;
+    }
+
+  
+    
+    
 }

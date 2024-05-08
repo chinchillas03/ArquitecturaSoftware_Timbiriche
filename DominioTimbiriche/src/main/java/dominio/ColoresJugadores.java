@@ -12,6 +12,17 @@ import java.util.HashMap;
  * @author xfs85
  */
 public class ColoresJugadores {
-    
-    private HashMap coloresJugadores;
+
+    private HashMap<String, Color> coloresJugadores = new HashMap<>();
+
+    public void addColor(String jugador, Color color) {
+
+        coloresJugadores.put(jugador, color);
+    }
+
+    public Color obtenerColor(String jugador) {
+        return coloresJugadores.get(jugador);
+        
+    }
+
 }

@@ -5,9 +5,10 @@
 package com.itson.modelos;
 
 import com.itson.dtos.SolicitarInicioDTO;
+import dominio.Jugador;
+import dominio.Partida;
 import dominio.Punto;
 import dominio.Tablero;
-import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class ModeloJuego {
     private Tablero tablero;
     private int[][] dimensionesParaTablero;
     private List<Punto> puntos;
+    private Partida partida;
 
     public Tablero inicializarTableroDeJuego(SolicitarInicioDTO solicitarInicioDTO) {
         llenarArregloDeDimensiones();
@@ -89,7 +91,17 @@ public class ModeloJuego {
         return dimensionesParaTablero;
 
     }
+
+    public Partida getPartida() {
+        return partida;
+    }
+
+    public void setPartida(Partida partida) {
+        this.partida = partida;
+    }
     
-  
+    public List<Jugador> obtenerListaJugadores(){
+        return this.partida.getJugadores(); 
+    }
 
 }

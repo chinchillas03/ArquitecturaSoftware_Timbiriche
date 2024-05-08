@@ -9,6 +9,7 @@ import com.itson.p2p.Cliente;
 import com.itson.p2p.Protocolo;
 import com.itson.p2p.Servidor;
 import com.itson.presentadores.PresentadorLobby;
+import dominio.ColoresJugadores;
 import dominio.DimensionTablero;
 import dominio.Jugador;
 import dominio.Partida;
@@ -30,7 +31,8 @@ public class ModeloConfigurarPartida {
 
             Partida nuevaPartida = solicitudNuevaPartida(crearPartidaDTO.getCodigoPartida(),
             crearPartidaDTO.getDimensionPartida(),
-            crearPartidaDTO.getJugadorAnfitrion()); 
+            crearPartidaDTO.getJugadorAnfitrion(), 
+            crearPartidaDTO.getColoresJugadores()); 
             return nuevaPartida;
             
         }else{
@@ -50,8 +52,8 @@ public class ModeloConfigurarPartida {
     
 
     
-    public Partida solicitudNuevaPartida(String codigo, DimensionTablero dimension, Jugador jugadorAnfitrion) {
-        Partida partidaSolicitada = partida.solicitudNuevaPartida(codigo, dimension, jugadorAnfitrion);
+    public Partida solicitudNuevaPartida(String codigo, DimensionTablero dimension, Jugador jugadorAnfitrion, ColoresJugadores coloresJugadores) {
+        Partida partidaSolicitada = partida.solicitudNuevaPartida(codigo, dimension, jugadorAnfitrion, coloresJugadores);
         return partidaSolicitada; 
     }
    

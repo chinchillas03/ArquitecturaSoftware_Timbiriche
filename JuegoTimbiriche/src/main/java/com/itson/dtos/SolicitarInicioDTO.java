@@ -5,6 +5,9 @@
 package com.itson.dtos;
 
 import dominio.DimensionTablero;
+import dominio.Jugador;
+import dominio.Partida;
+import java.util.List;
 
 /**
  *
@@ -12,17 +15,14 @@ import dominio.DimensionTablero;
  */
 public class SolicitarInicioDTO {
 
-    // x, y, height, width
-    private int[][] dimensiones_coordenadas = new int[3][4];
 
     private DimensionTablero dimension;
     
+    private List<Jugador> jugadores; 
     
-    public void agregarDimensionesAlArreglo(int [][] dimensiones_coordenadas) {
+    private Partida partida;
+    
 
-        this.dimensiones_coordenadas = dimensiones_coordenadas; 
-       
-    }
 
     public DimensionTablero getDimension() {
         return dimension;
@@ -31,6 +31,23 @@ public class SolicitarInicioDTO {
     public void setDimension(DimensionTablero dimension) {
         this.dimension = dimension;
     }
+
+    public List<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public void setJugadores(List<Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
+
+    public Partida getPartida() {
+        return partida;
+    }
+
+    public void setPartida(Partida partida) {
+        this.partida = partida;
+    }
+    
     
     
     

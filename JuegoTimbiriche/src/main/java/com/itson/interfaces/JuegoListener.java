@@ -4,6 +4,10 @@
  */
 package com.itson.interfaces;
 
+import dominio.Jugador;
+import dominio.Partida;
+import java.util.List;
+
 /**
  *
  * @author Usuario
@@ -12,4 +16,9 @@ public interface JuegoListener {
     void ponerLinea();
 
     void clickBotonSalir();
+    
+    Partida obtenerPartida(); 
+    
+    List<Jugador> obtenerListaJugadores(); 
+    
 }

@@ -6,9 +6,9 @@ package com.itson.modelos;
 
 //import dominio.Jugador;
 import dominio.Jugador;
+import dominio.Partida;
 import java.util.LinkedList;
 import java.util.List;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -19,7 +19,8 @@ public class ModeloLobby {
     private List<Jugador> jugadores;
     private String codigo;
     private String dimension;
-
+    private Partida partida; 
+    
     public ModeloLobby(){
         jugadores = new LinkedList<>();
     }
@@ -50,6 +51,14 @@ public class ModeloLobby {
 
     public void setDimension(String dimension) {
         this.dimension = dimension;
+    }
+
+    public Partida getPartida() {
+        return partida;
+    }
+
+    public void setPartida(Partida partida) {
+        this.partida = partida;
     }
     
 }

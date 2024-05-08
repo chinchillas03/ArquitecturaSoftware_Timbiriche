@@ -23,4 +23,5 @@ public interface LobbyListener {
     
     void actualizarDatosJugador(Partida partida);
     
+    Partida obtenerPartida();
 }

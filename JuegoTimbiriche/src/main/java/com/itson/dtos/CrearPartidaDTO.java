@@ -4,6 +4,7 @@
  */
 package com.itson.dtos;
 
+import dominio.ColoresJugadores;
 import dominio.DimensionTablero;
 import dominio.Jugador;
 
@@ -16,6 +17,7 @@ public class CrearPartidaDTO {
     String codigoPartida; 
     DimensionTablero dimensionPartida; 
     Jugador jugadorAnfitrion; 
+    private ColoresJugadores coloresJugadores; 
 
     public CrearPartidaDTO(String codigoPartida, DimensionTablero dimensionPartida, Jugador jugadorAnfitrion) {
         this.codigoPartida = codigoPartida;
@@ -33,6 +35,14 @@ public class CrearPartidaDTO {
 
     public Jugador getJugadorAnfitrion() {
         return jugadorAnfitrion;
+    }
+
+    public ColoresJugadores getColoresJugadores() {
+        return coloresJugadores;
+    }
+
+    public void setColoresJugadores(ColoresJugadores coloresJugadores) {
+        this.coloresJugadores = coloresJugadores;
     }
     
 }

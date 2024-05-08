@@ -23,7 +23,8 @@ public class PresentadorLobby implements LobbyListener {
     private ModeloLobby model = new ModeloLobby();
     private FrmLobby view;
     private PresentadorPantallaPrincipal presentadorPantallaPrincipal;
-
+    private Partida partida; 
+    
     public PresentadorLobby() {
         view = new FrmLobby();
         this.view.setListener(this);
@@ -39,7 +40,7 @@ public class PresentadorLobby implements LobbyListener {
 
     @Override
     public void solicitarInicio(SolicitarInicioDTO solicitarInicioDTO ) {
-        new PresentadorJuego().iniciarPantallaJuego(solicitarInicioDTO);
+        new PresentadorJuego(solicitarInicioDTO);
     }
 
     @Override
@@ -78,6 +79,15 @@ public class PresentadorLobby implements LobbyListener {
     public void actualizarDatosJugador(Partida partida) {
         List<Jugador> jugadores = partida.getJugadores();
         view.mostrarJugador(jugadores);
+    }
+    
+    public void establecerPartidaLobby(Partida partida){
+        this.model.setPartida(partida);
+    }
+
+    @Override
+    public Partida obtenerPartida() {
+        return this.model.getPartida();
     }
 
 }

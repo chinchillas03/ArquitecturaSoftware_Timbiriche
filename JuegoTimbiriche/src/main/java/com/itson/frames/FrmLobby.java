@@ -21,7 +21,7 @@ public class FrmLobby extends javax.swing.JFrame {
 
     private LobbyListener listener;
     private SolicitarInicioDTO solicitar = new SolicitarInicioDTO();
-
+    
     /**
      * Creates new form FrmLobby
      *
@@ -41,6 +41,7 @@ public class FrmLobby extends javax.swing.JFrame {
     private void listenerIniciar() {
         SolicitarInicioDTO solicitarInicioDTO = new SolicitarInicioDTO();
         solicitarInicioDTO.setDimension(DimensionTablero.DIEZxDIEZ);
+        solicitarInicioDTO.setPartida(this.listener.obtenerPartida());
         this.listener.solicitarInicio(solicitarInicioDTO);
         this.cerrarPantalla();
     }
