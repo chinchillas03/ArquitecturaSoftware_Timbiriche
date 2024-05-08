@@ -6,6 +6,7 @@ package com.itson.frames;
 
 import dominio.Punto;
 import dominio.Tablero;
+import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
@@ -24,6 +25,7 @@ import javax.swing.JPanel;
 public class PanelTableroDiez extends JPanel implements Runnable {
 
     List<Ellipse2D.Double> objetosPuntos;
+    Ellipse2D.Double currentPoint;
 
     public PanelTableroDiez(Tablero tablero) {
         mostrarTableroJuego(tablero);
@@ -61,6 +63,7 @@ public class PanelTableroDiez extends JPanel implements Runnable {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
+               
                 handleClick(e.getPoint());
             }
 
@@ -68,7 +71,32 @@ public class PanelTableroDiez extends JPanel implements Runnable {
 
     }
 
-    protected void handleClick(Point point) {
-        JOptionPane.showMessageDialog(null, "Hola");
+    protected boolean handleClick(Point clickPoint) {
+
+        for (Ellipse2D.Double punto : this.objetosPuntos) {
+
+            if (punto.contains(clickPoint)) {
+
+                if (this.currentPoint == null) {
+                    establecerPuntoActual(punto);
+                } else if (this.currentPoint != null) {
+                    Graphics2D g2d = (Graphics2D) getGraphics();
+                    g2d.setStroke(new BasicStroke(3));
+                    g2d.drawLine((int) this.currentPoint.getX()+15,
+                            (int) this.currentPoint.getY()+15,
+                            (int) punto.getX()+15,
+                            (int) punto.getY()+15);
+                    this.currentPoint = null; 
+                    return true; 
+                }
+                
+            }   
+
+        }
+        return false; 
+    }
+
+    public void establecerPuntoActual(Ellipse2D.Double punto) {
+        this.currentPoint = punto;
     }
 }
