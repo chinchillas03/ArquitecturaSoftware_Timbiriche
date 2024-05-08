@@ -4,6 +4,8 @@
  */
 package com.itson.dtos;
 
+import dominio.DimensionTablero;
+
 /**
  *
  * @author waw
@@ -11,12 +13,26 @@ package com.itson.dtos;
 public class SolicitarInicioDTO {
 
     // x, y, height, width
-    int[][] dimensiones_coordenadas = new int[3][4];
+    private int[][] dimensiones_coordenadas = new int[3][4];
 
+    private DimensionTablero dimension;
+    
+    
     public void agregarDimensionesAlArreglo(int [][] dimensiones_coordenadas) {
 
         this.dimensiones_coordenadas = dimensiones_coordenadas; 
        
     }
+
+    public DimensionTablero getDimension() {
+        return dimension;
+    }
+
+    public void setDimension(DimensionTablero dimension) {
+        this.dimension = dimension;
+    }
+    
+    
+    
 
 }
