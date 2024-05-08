@@ -39,7 +39,7 @@ public class PresentadorJuego implements JuegoListener {
         this.view = new FrmJuego(tablero);
                 
         this.view.setVisible(true);
-
+       
     }
 
     public void mostrarPantallaJuego() {

@@ -140,7 +140,7 @@ public class PanelTableroDiez extends JPanel {
         g2d.fillOval(770, 430, 30, 30);
         
       
-       
+        
     
     }
 

@@ -7,12 +7,18 @@ package com.itson.frames;
 import com.itson.interfaces.JuegoListener;
 import dominio.Punto;
 import dominio.Tablero;
+import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.HeadlessException;
+import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,26 +28,20 @@ public class FrmJuego extends javax.swing.JFrame {
 
     private JuegoListener listener;
 
-    List<Ellipse2D.Double> objetosPuntos;
-
     /**
      * Creates new form FrmJuego
      */
     public FrmJuego() throws HeadlessException {
-
+        
     }
 
     public FrmJuego(Tablero tablero) {
         initComponents();
-        mostrarTableroJuego(tablero);
-    }
-
-    public void mostrarTableroJuego(Tablero tablero) {
-        this.objetosPuntos = new ArrayList<>();
-        for (Punto punto : tablero.getPuntos()) {
-            Ellipse2D.Double puntoGrafico = punto.getPuntoGrafico(); // Usa el método del punto actual
-            objetosPuntos.add(puntoGrafico);
-        }
+        PanelTableroDiez panel = new PanelTableroDiez(tablero);
+        panel.run();
+        panel.setBounds(0, 0, 900, 700);
+        add(panel);
+                
     }
 
     public void setListener(JuegoListener listener) {
@@ -55,22 +55,6 @@ public class FrmJuego extends javax.swing.JFrame {
     private void listenerSalir() {
         this.listener.clickBotonSalir();
         this.cerrarPantalla();
-    }
-
-    public void paint(Graphics g) {
-
-        Graphics2D g2d = (Graphics2D) g;
-
-        for (Ellipse2D.Double puntosADibujar : this.objetosPuntos) {
-            g2d.draw(puntosADibujar);
-            g2d.fill(puntosADibujar);
-        }
-
-    }
-
-    public void paintComponent(Graphics g) {
-        super.paintComponents(g);
-        paint(g);
     }
 
     /**
@@ -126,4 +110,5 @@ public class FrmJuego extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalir;
     // End of variables declaration//GEN-END:variables
+
 }
