@@ -56,5 +56,11 @@ public class Tablero implements Serializable{
     public void setLineas(List<Linea> lineas) {
         this.lineas = lineas;
     }
+    
+    public Linea agregaLinea(Tablero tablero, Linea linea){
+        
+        tablero.lineas.add(linea); 
+        return linea; 
+    }
 
 }

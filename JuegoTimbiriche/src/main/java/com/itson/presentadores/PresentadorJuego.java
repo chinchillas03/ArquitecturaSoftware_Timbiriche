@@ -9,6 +9,7 @@ import com.itson.frames.FrmJuego;
 import com.itson.interfaces.JuegoListener;
 import com.itson.modelos.ModeloJuego;
 import dominio.Jugador;
+import dominio.Linea;
 import dominio.Partida;
 import dominio.Tablero;
 import java.util.List;
@@ -58,5 +59,12 @@ public class PresentadorJuego implements JuegoListener {
     public List<Jugador> obtenerListaJugadores() {
         return model.obtenerListaJugadores();
     }
+    
+    public Linea agregaLineaALista(Tablero tablero, Linea linea){
+        this.model.agregaLineaALista(tablero, linea);
+        return linea;
+    }
+
+ 
 
 }

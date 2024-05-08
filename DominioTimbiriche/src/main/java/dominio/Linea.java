@@ -4,30 +4,32 @@
  */
 package dominio;
 
+import java.awt.geom.Ellipse2D;
+
 /**
  *
  * @author Usuario
  */
 public class Linea {
     
-    private Punto punto1;
-    private Punto punto2;
+    private Ellipse2D punto1;
+    private Ellipse2D punto2;
     private Jugador propietario;
     private Cuadro cuadro; 
     
-    public Punto getPunto1() {
+    public Ellipse2D getPunto1() {
         return punto1;
     }
 
-    public void setPunto1(Punto punto1) {
+    public void setPunto1(Ellipse2D punto1) {
         this.punto1 = punto1;
     }
 
-    public Punto getPunto2() {
+    public Ellipse2D getPunto2() {
         return punto2;
     }
 
-    public void setPunto2(Punto punto2) {
+    public void setPunto2(Ellipse2D punto2) {
         this.punto2 = punto2;
     }
 

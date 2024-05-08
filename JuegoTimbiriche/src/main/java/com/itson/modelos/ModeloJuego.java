@@ -6,6 +6,7 @@ package com.itson.modelos;
 
 import com.itson.dtos.SolicitarInicioDTO;
 import dominio.Jugador;
+import dominio.Linea;
 import dominio.Partida;
 import dominio.Punto;
 import dominio.Tablero;
@@ -34,10 +35,14 @@ public class ModeloJuego {
         llenarArregloDeDimensiones();
         tablero = new Tablero();
         tablero.setDimension(solicitarInicioDTO.getDimension());
+        this.tablero.setLineas( creaListaDeLineas()); 
         llenaListaPuntos();
         return tablero;
     }
-
+    
+    private List<Linea> creaListaDeLineas(){
+        return new ArrayList<Linea>(); 
+    }
     private List<Punto> creaListaPuntos() {
         return new ArrayList<Punto>();
     }
@@ -99,9 +104,13 @@ public class ModeloJuego {
     public void setPartida(Partida partida) {
         this.partida = partida;
     }
-    
-    public List<Jugador> obtenerListaJugadores(){
-        return this.partida.getJugadores(); 
+
+    public List<Jugador> obtenerListaJugadores() {
+        return this.partida.getJugadores();
+    }
+
+    public Linea agregaLineaALista(Tablero tablero, Linea linea) {
+        return tablero.agregaLinea(tablero, linea); 
     }
 
 }

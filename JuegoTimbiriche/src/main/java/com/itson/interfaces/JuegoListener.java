@@ -5,7 +5,9 @@
 package com.itson.interfaces;
 
 import dominio.Jugador;
+import dominio.Linea;
 import dominio.Partida;
+import dominio.Tablero;
 import java.util.List;
 
 /**
@@ -21,4 +23,5 @@ public interface JuegoListener {
     
     List<Jugador> obtenerListaJugadores(); 
     
+    Linea agregaLineaALista(Tablero tablero, Linea linea); 
 }

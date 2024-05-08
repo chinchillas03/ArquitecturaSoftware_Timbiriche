@@ -7,6 +7,7 @@ package com.itson.frames;
 import com.itson.interfaces.JuegoListener;
 import dominio.ColoresJugadores;
 import dominio.Jugador;
+import dominio.Linea;
 import dominio.Punto;
 import dominio.Tablero;
 import java.awt.BasicStroke;
@@ -31,10 +32,10 @@ public class PanelTableroDiez extends JPanel implements Runnable {
     Ellipse2D.Double currentPoint;
     private ColoresJugadores colores;
     private List<Jugador> jugadores;
-    
+
     private Tablero tablero;
-    private JuegoListener juegoListener; 
-    
+    private JuegoListener juegoListener;
+
     public PanelTableroDiez(JuegoListener listener) {
         this.juegoListener = listener;
         this.tablero = juegoListener.obtenerPartida().getTablero();
@@ -42,8 +43,6 @@ public class PanelTableroDiez extends JPanel implements Runnable {
         this.jugadores = juegoListener.obtenerPartida().getJugadores();
         mostrarTableroJuego(tablero);
     }
-    
-
 
     public void mostrarTableroJuego(Tablero tablero) {
 
@@ -98,7 +97,7 @@ public class PanelTableroDiez extends JPanel implements Runnable {
                     for (Jugador jugador : jugadores) {
 
                         if (colores.obtenerColor(jugador.getNombre()) != null) {
-                            
+
                             Graphics2D g2d = (Graphics2D) getGraphics();
                             g2d.setStroke(new BasicStroke(3));
                             g2d.setColor(colores.obtenerColor(jugador.getNombre()));
@@ -106,7 +105,15 @@ public class PanelTableroDiez extends JPanel implements Runnable {
                                     (int) this.currentPoint.getY() + 15,
                                     (int) punto.getX() + 15,
                                     (int) punto.getY() + 15);
+                            
+                            Linea linea = new Linea();
+                            linea.setPunto1(currentPoint);
+                            linea.setPunto2(punto);
+                            this.juegoListener.agregaLineaALista(this.tablero, linea);
+
                             this.currentPoint = null;
+
+
                             return true;
                         }
                     }
@@ -143,7 +150,4 @@ public class PanelTableroDiez extends JPanel implements Runnable {
         return juegoListener;
     }
 
-  
-    
-    
 }
