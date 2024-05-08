@@ -4,6 +4,7 @@
  */
 package dominio;
 
+import java.awt.Graphics;
 import java.awt.geom.Ellipse2D;
 
 /**
@@ -18,7 +19,7 @@ public class Punto {
     private float width;
     private float height;
     private String owner;
-    private Ellipse2D.Double puntoGrafico; 
+    private Ellipse2D.Double puntoGrafico ; 
 
     public Punto() {
     }
@@ -107,7 +108,8 @@ public class Punto {
     public void setPuntoGrafico(Ellipse2D.Double puntoGrafico) {
         this.puntoGrafico = puntoGrafico;
     }
-    
+
+
     
     
 }

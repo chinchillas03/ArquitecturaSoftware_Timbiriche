@@ -36,8 +36,8 @@ public class PanelPunto extends JPanel implements ActionListener, Runnable {
         punto.creaNuevoPunto(5, 5, 30, 30, "Luis");
         Punto punto2 = new Punto();
         punto2.creaNuevoPunto(50, 5, 30, 30, "Luis");
-        this.elipse = punto.getPuntoGrafico();
-        this.elipse2 = punto2.getPuntoGrafico();
+//        this.elipse = punto.getPuntoGrafico();
+//        this.elipse2 = punto2.getPuntoGrafico();
 
     }
 

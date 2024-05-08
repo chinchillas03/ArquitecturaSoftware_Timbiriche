@@ -5,6 +5,14 @@
 package com.itson.frames;
 
 import com.itson.interfaces.JuegoListener;
+import dominio.Punto;
+import dominio.Tablero;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.HeadlessException;
+import java.awt.geom.Ellipse2D;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,27 +21,58 @@ import com.itson.interfaces.JuegoListener;
 public class FrmJuego extends javax.swing.JFrame {
 
     private JuegoListener listener;
-    
+
+    List<Ellipse2D.Double> objetosPuntos;
+
     /**
      * Creates new form FrmJuego
      */
-    public FrmJuego() {
-        initComponents();
+    public FrmJuego() throws HeadlessException {
+
     }
 
-    public void setListener (JuegoListener listener){
+    public FrmJuego(Tablero tablero) {
+        initComponents();
+        mostrarTableroJuego(tablero);
+    }
+
+    public void mostrarTableroJuego(Tablero tablero) {
+        this.objetosPuntos = new ArrayList<>();
+        for (Punto punto : tablero.getPuntos()) {
+            Ellipse2D.Double puntoGrafico = punto.getPuntoGrafico(); // Usa el método del punto actual
+            objetosPuntos.add(puntoGrafico);
+        }
+    }
+
+    public void setListener(JuegoListener listener) {
         this.listener = listener;
     }
-    
-    private void cerrarPantalla(){
+
+    private void cerrarPantalla() {
         this.setVisible(false);
     }
-    
-    private void listenerSalir(){
+
+    private void listenerSalir() {
         this.listener.clickBotonSalir();
         this.cerrarPantalla();
     }
-    
+
+    public void paint(Graphics g) {
+
+        Graphics2D g2d = (Graphics2D) g;
+
+        for (Ellipse2D.Double puntosADibujar : this.objetosPuntos) {
+            g2d.draw(puntosADibujar);
+            g2d.fill(puntosADibujar);
+        }
+
+    }
+
+    public void paintComponent(Graphics g) {
+        super.paintComponents(g);
+        paint(g);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

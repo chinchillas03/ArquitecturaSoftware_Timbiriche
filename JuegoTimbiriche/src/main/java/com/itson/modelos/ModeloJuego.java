@@ -7,6 +7,7 @@ package com.itson.modelos;
 import com.itson.dtos.SolicitarInicioDTO;
 import dominio.Punto;
 import dominio.Tablero;
+import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +30,8 @@ public class ModeloJuego {
 
     public Tablero inicializarTableroDeJuego(SolicitarInicioDTO solicitarInicioDTO) {
         llenarArregloDeDimensiones();
-        //tablero = new Tablero();
-        //tablero.setDimension(solicitarInicioDTO.getDimension());
+        tablero = new Tablero();
+        tablero.setDimension(solicitarInicioDTO.getDimension());
         llenaListaPuntos();
         return tablero;
     }
@@ -53,14 +54,15 @@ public class ModeloJuego {
             this.puntos.add(punto);
 
         };
+        this.tablero.setPuntos(puntos);
         return puntos;
     }
 
     private int[][] llenarArregloDeDimensiones() {
 
         this.dimensionesParaTablero = new int[100][4];
-        int posicionX = 68;
-        int posicionY = 25;
+        int posicionX = 120;
+        int posicionY = 120;
         int aux = 0;
         int contRegistros = 0;
         for (int i = 0; i < 100; i++) {
@@ -75,10 +77,10 @@ public class ModeloJuego {
 
             contRegistros++;
             posicionX += 68;
-            if (contRegistros > 10) {
+            if (contRegistros == 10) {
 
                 posicionY += 45;
-                posicionX = 68;
+                posicionX = 120;
                 contRegistros = 0;
             }
 
@@ -87,11 +89,7 @@ public class ModeloJuego {
         return dimensionesParaTablero;
 
     }
-
-    public static void main(String[] args) {
-        ModeloJuego model = new ModeloJuego();
-
-        model.inicializarTableroDeJuego(null);
-    }
+    
+  
 
 }

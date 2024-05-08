@@ -10,17 +10,17 @@ package com.itson.panel;
  */
 public class PruebaFrames {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here}
-        PanelFrameDiez panelFrame = new PanelFrameDiez(); 
-        PanelTableroVeinte panelTablero = new PanelTableroVeinte();
-        PanelPuntosDiez panelPuntos = new PanelPuntosDiez(); 
-        PanelJugadoresDiez panelJugadores = new PanelJugadoresDiez();
-        FrameContenedorDiez frame = new FrameContenedorDiez(panelTablero, panelPuntos, panelFrame, panelJugadores);
-        
-    }
+//    /**
+//     * @param args the command line arguments
+//     */
+//    public static void main(String[] args) {
+//        // TODO code application logic here}
+//        PanelFrameDiez panelFrame = new PanelFrameDiez(); 
+//        PanelTableroVeinte panelTablero = new PanelTableroVeinte();
+//        PanelPuntosDiez panelPuntos = new PanelPuntosDiez(); 
+//        PanelJugadoresDiez panelJugadores = new PanelJugadoresDiez();
+//        FrameContenedorDiez frame = new FrameContenedorDiez(panelTablero, panelPuntos, panelFrame, panelJugadores);
+//        
+//    }
     
 }

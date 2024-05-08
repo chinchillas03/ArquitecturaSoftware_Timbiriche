@@ -7,6 +7,7 @@ package com.itson.frames;
 import com.itson.dtos.SolicitarInicioDTO;
 import com.itson.interfaces.LobbyListener;
 import com.itson.presentadores.PresentadorLobby;
+import dominio.DimensionTablero;
 import dominio.Jugador;
 import dominio.Partida;
 import java.util.List;
@@ -39,6 +40,7 @@ public class FrmLobby extends javax.swing.JFrame {
 
     private void listenerIniciar() {
         SolicitarInicioDTO solicitarInicioDTO = new SolicitarInicioDTO();
+        solicitarInicioDTO.setDimension(DimensionTablero.DIEZxDIEZ);
         this.listener.solicitarInicio(solicitarInicioDTO);
         this.cerrarPantalla();
     }

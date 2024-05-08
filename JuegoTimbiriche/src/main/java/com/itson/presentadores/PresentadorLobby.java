@@ -39,7 +39,7 @@ public class PresentadorLobby implements LobbyListener {
 
     @Override
     public void solicitarInicio(SolicitarInicioDTO solicitarInicioDTO ) {
-        new PresentadorJuego().iniciarPantallaJuego();
+        new PresentadorJuego().iniciarPantallaJuego(solicitarInicioDTO);
     }
 
     @Override
