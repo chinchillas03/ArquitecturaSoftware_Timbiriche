@@ -14,6 +14,7 @@ import com.itson.p2p.Protocolo;
 import com.itson.p2p.Servidor;
 import dominio.ColoresJugadores;
 import dominio.Jugador;
+import dominio.Partida;
 import java.awt.Color;
 import java.io.IOException;
 
@@ -44,27 +45,32 @@ public class PresentadorConfigurarPartida implements ConfigurarPartidaListener {
         
         coloresJugadores.addColor(anfitrion.getNombre(), anfitrion.getColorJugador());
         crearPartidaDTO.setColoresJugadores(coloresJugadores);
+        Partida partida = model.crearNuevaPartida(crearPartidaDTO);
         presentadorLobby = new PresentadorLobby(anfitrion); 
-        presentadorLobby.establecerPartidaLobby(model.crearNuevaPartida(crearPartidaDTO));
-        presentadorLobby.mostrarDatosPartida(model.crearNuevaPartida(crearPartidaDTO));   
+        presentadorLobby.establecerPartidaLobby(partida);
+        presentadorLobby.mostrarDatosPartida(partida);   
         
-        this.crearServer();
+        this.crearServer(partida);
     }
 
-        public void crearServer(){
+    public void crearServer(Partida partida) {
         try {
             Servidor server = new Servidor(9999);
             Cliente cliente = new Cliente();
             Protocolo protocolo = new Protocolo();
             server.setCliente(cliente);
             server.setProtocolo(protocolo);
-            ConexionDTO nodo = new ConexionDTO(server.getServerSocket().getInetAddress().toString(), server.getServerSocket().getLocalPort(), this.model.getPartida());
+            cliente.setLobby(presentadorLobby);
+            ConexionDTO nodo = new ConexionDTO(server.getServerSocket().getInetAddress().toString(),
+                    server.getServerSocket().getLocalPort(),
+                    partida);
             server.setNodo(nodo);
+            server.setPartida(partida);
             cliente.setMiServer(server);
         } catch (IOException e) {
         }
     }
-    
+
     public void mostrarPantallaConfigurarPartida() {
         this.view.setVisible(true);
     }

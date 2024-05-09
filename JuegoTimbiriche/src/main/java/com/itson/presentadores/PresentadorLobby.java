@@ -85,6 +85,10 @@ public class PresentadorLobby implements LobbyListener {
         this.model.setPartida(partida);
     }
 
+    public void refrescar(List<Jugador> jugadores){
+        this.view.refrescar(jugadores);
+    }
+    
     @Override
     public Partida obtenerPartida() {
         return this.model.getPartida();

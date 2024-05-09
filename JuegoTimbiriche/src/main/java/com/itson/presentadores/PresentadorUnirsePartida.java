@@ -35,11 +35,12 @@ public class PresentadorUnirsePartida implements UnirsePartidaListener{
         model.setpuerto(puerto);
         model.setJugador(anfitrion);
         this.crearConexion();
+        this.view.setVisible(false);
     }
     
     public void crearConexion(){
         try {
-            int puerto1 = 9997;
+            int puerto1 = 9996;
             Servidor servidor = new Servidor(puerto1);
             Cliente cliente = new Cliente();            
             Protocolo protocolo = new Protocolo();
@@ -47,9 +48,7 @@ public class PresentadorUnirsePartida implements UnirsePartidaListener{
             servidor.setProtocolo(protocolo);
             cliente.setMiServer(servidor);  
             cliente.setLobby(new PresentadorLobby());
-            ConexionDTO nodo = new ConexionDTO(servidor.getServerSocket().getInetAddress().toString(), servidor.getServerSocket().getLocalPort(), this.model.getJugador());
-            servidor.setNodo(nodo);
-            cliente.conectar(this.model.getIp(), Integer.parseInt(this.model.getpuerto()));           
+            cliente.conectar(this.model.getIp(), Integer.parseInt(this.model.getpuerto()), this.model.getJugador());           
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }

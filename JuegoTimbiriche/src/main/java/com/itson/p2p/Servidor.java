@@ -109,6 +109,8 @@ public class Servidor implements Runnable{
                             nodos.add(this.nodo);
                         }
                         cliente.agregarNodo(nodoNuevo);
+                        this.partida.agregarJugador(nodoNuevo.getJugador());
+                        this.cliente.refrescarLobby(this.partida.getJugadores());
                         nodosClientes.add(nodoNuevo);
                         out.writeObject(nodos);
                     }

@@ -7,6 +7,7 @@ package com.itson.p2p;
 import com.itson.dtos.ConexionDTO;
 import com.itson.dtos.UnirsePartidaDTO;
 import com.itson.presentadores.PresentadorLobby;
+import dominio.Jugador;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -41,10 +42,13 @@ public class Cliente implements Runnable{
     }
 
     public void setearLobby(UnirsePartidaDTO unirse){
-        unirse.getPartida().agregarJugador(miServer.getNodo().getJugador());
         if (this.lobby != null) {
             this.lobby.setearLobbyConexion(unirse);
         }
+    }
+    
+    public void refrescarLobby(List<Jugador> jugadores){
+        this.lobby.refrescar(jugadores);
     }
     
     public PresentadorLobby getLobby() {
@@ -83,11 +87,12 @@ public class Cliente implements Runnable{
         this.servidoresNodos.add(nuevoNodo);
     }
     
-    public void conectar(String ip, int puerto) {
+    public void conectar(String ip, int puerto, Jugador jugador) {
         try {
             this.socket = new Socket(ip, puerto);
             setSocket(socket);
-            ConexionDTO nodo = new ConexionDTO(miServer.getServerSocket().getInetAddress().toString(), miServer.getServerSocket().getLocalPort());
+            ConexionDTO nodo = new ConexionDTO(miServer.getServerSocket().getInetAddress().toString(), miServer.getServerSocket().getLocalPort(), jugador);
+            this.miServer.setNodo(nodo);
             ObjectOutputStream out = new ObjectOutputStream(this.socket.getOutputStream());
             out.writeObject(nodo);
             out.flush();

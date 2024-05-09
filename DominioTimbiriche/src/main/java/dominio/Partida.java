@@ -4,8 +4,7 @@
  */
 package dominio;
 
-
-import com.itson.dto.UnirsePartidaDTO;
+import com.itson.dtos.UnirsePartidaDTO;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList; 

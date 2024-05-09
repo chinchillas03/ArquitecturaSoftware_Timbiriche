@@ -62,11 +62,39 @@ public class FrmLobby extends javax.swing.JFrame {
     }
 
     public void mostrarJugador(List<Jugador> jugadores) {
-        lblNombre1.setText(jugadores.get(0).getNombre());
-        lblNombre1.setForeground(jugadores.get(0).getColorJugador());
-        lblAvatar1.setText("");
-        lblAvatar1.setIcon(jugadores.get(0).getAvatar());
+        int contador = 0;
+        for (Jugador jugadore : jugadores) {
+            if (contador == 0) {
+                lblNombre1.setText(jugadore.getNombre());
+                lblNombre1.setForeground(jugadore.getColorJugador());
+                lblAvatar1.setText("");
+                lblAvatar1.setIcon(jugadore.getAvatar());
+                contador++;
+            } else if (contador == 1) {
+                lblNombre2.setText(jugadore.getNombre());
+                lblNombre2.setForeground(jugadore.getColorJugador());
+                lblAvatar2.setText("");
+                lblAvatar2.setIcon(jugadore.getAvatar());
+                contador++;
+            } else if (contador == 2){
+                lblNombre3.setText(jugadore.getNombre());
+                lblNombre3.setForeground(jugadore.getColorJugador());
+                lblAvatar3.setText("");
+                lblAvatar3.setIcon(jugadore.getAvatar());
+                contador++;
+            } else if (contador == 3){
+                lblNombre4.setText(jugadore.getNombre());
+                lblNombre4.setForeground(jugadore.getColorJugador());
+                lblAvatar4.setText("");
+                lblAvatar4.setIcon(jugadore.getAvatar());
+            }
+        }
 
+    }
+    
+    public void refrescar(List<Jugador> jugadores){
+        this.mostrarJugador(jugadores);
+        this.repaint();
     }
 
     /**

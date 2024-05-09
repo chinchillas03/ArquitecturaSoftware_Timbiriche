@@ -19,8 +19,36 @@ public class ConexionDTO implements Serializable{
     private int puerto;
     private Jugador jugador;
     private Partida partida;
+    private String codigo;
+    private String dimension;
+
+    public ConexionDTO(String ip, int puerto, Jugador jugador, Partida partida, String codigo, String dimension) {
+        this.ip = ip;
+        this.puerto = puerto;
+        this.jugador = jugador;
+        this.partida = partida;
+        this.codigo = codigo;
+        this.dimension = dimension;
+    }
+    
     public String getIp() {
         return ip;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getDimension() {
+        return dimension;
+    }
+
+    public void setDimension(String dimension) {
+        this.dimension = dimension;
     }
 
     public Partida getPartida() {
