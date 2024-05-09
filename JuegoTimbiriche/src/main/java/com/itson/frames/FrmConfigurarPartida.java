@@ -7,8 +7,8 @@ package com.itson.frames;
 import com.itson.dtos.CrearPartidaDTO;
 import javax.swing.*;
 import com.itson.interfaces.ConfigurarPartidaListener;
-import dominio.DimensionTablero;
-import dominio.Jugador;
+import ValueObjects.DimensionTablero;
+import Entities.Jugador;
 import java.util.ArrayList;
 import java.util.List;
 

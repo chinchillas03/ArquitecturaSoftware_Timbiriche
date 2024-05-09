@@ -5,8 +5,8 @@
 package com.itson.modelos;
 
 //import dominio.Jugador;
-import dominio.Jugador;
-import dominio.Partida;
+import Entities.Jugador;
+import Entities.Partida;
 import java.util.LinkedList;
 import java.util.List;
 

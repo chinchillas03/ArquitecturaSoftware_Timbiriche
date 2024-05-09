@@ -12,9 +12,9 @@ import com.itson.modelos.ModeloConfigurarPartida;
 import com.itson.p2p.Cliente;
 import com.itson.p2p.Protocolo;
 import com.itson.p2p.Servidor;
-import dominio.ColoresJugadores;
-import dominio.Jugador;
-import dominio.Partida;
+import Aggregates.ColoresJugadores;
+import Entities.Jugador;
+import Entities.Partida;
 import java.awt.Color;
 import java.io.IOException;
 

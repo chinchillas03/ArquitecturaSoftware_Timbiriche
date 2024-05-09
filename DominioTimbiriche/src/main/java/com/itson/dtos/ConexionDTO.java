@@ -4,9 +4,9 @@
  */
 package com.itson.dtos;
 
-import dominio.ColoresJugadores;
-import dominio.Jugador;
-import dominio.Partida;
+import Aggregates.ColoresJugadores;
+import Entities.Jugador;
+import Entities.Partida;
 import java.io.Serializable;
 
 /**

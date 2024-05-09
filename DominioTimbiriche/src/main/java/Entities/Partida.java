@@ -2,9 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dominio;
+package Entities;
 
 import com.itson.dtos.UnirsePartidaDTO;
+import Aggregates.ColoresJugadores;
+import ValueObjects.DimensionTablero;
+import Aggregates.Tablero;
 import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList; 

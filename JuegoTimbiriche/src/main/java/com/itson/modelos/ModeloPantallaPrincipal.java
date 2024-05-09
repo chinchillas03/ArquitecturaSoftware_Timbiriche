@@ -4,7 +4,7 @@
  */
 package com.itson.modelos;
 
-import dominio.Jugador;
+import Entities.Jugador;
 import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;

@@ -4,9 +4,9 @@
  */
 package com.itson.dtos;
 
-import dominio.DimensionTablero;
-import dominio.Jugador;
-import dominio.Partida;
+import ValueObjects.DimensionTablero;
+import Entities.Jugador;
+import Entities.Partida;
 import java.util.List;
 
 /**

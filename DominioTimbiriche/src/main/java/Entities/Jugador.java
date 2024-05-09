@@ -2,8 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dominio;
+package Entities;
 
+import Aggregates.Cuadro;
+import ValueObjects.EstadoJugador;
+import ValueObjects.TipoJugador;
 import java.awt.Color;
 import java.io.Serializable;
 import java.util.LinkedList;

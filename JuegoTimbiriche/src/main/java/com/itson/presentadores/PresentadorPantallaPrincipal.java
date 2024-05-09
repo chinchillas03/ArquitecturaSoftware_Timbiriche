@@ -7,7 +7,7 @@ package com.itson.presentadores;
 import com.itson.frames.FrmPantallaPrincipal;
 import com.itson.interfaces.PantallaPrincipalListener;
 import com.itson.modelos.ModeloPantallaPrincipal;
-import dominio.Jugador;
+import Entities.Jugador;
 import java.awt.Color;
 import java.util.List;
 import javax.swing.ImageIcon;

@@ -7,7 +7,7 @@ package com.itson.p2p;
 import com.itson.dtos.ConexionDTO;
 import com.itson.dtos.UnirsePartidaDTO;
 import com.itson.presentadores.PresentadorLobby;
-import dominio.Jugador;
+import Entities.Jugador;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

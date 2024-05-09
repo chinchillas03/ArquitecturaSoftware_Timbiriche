@@ -10,8 +10,8 @@ import com.itson.frames.FrmLobby;
 import com.itson.interfaces.LobbyListener;
 import com.itson.modelos.ModeloConfigurarPartida;
 import com.itson.modelos.ModeloLobby;
-import dominio.Jugador;
-import dominio.Partida;
+import Entities.Jugador;
+import Entities.Partida;
 import java.util.List;
 
 /**

@@ -5,11 +5,11 @@
 package com.itson.modelos;
 
 import com.itson.dtos.SolicitarInicioDTO;
-import dominio.Jugador;
-import dominio.Linea;
-import dominio.Partida;
-import dominio.Punto;
-import dominio.Tablero;
+import Entities.Jugador;
+import Aggregates.Linea;
+import Entities.Partida;
+import ValueObjects.Punto;
+import Aggregates.Tablero;
 import java.awt.geom.Ellipse2D;
 import java.util.AbstractList;
 import java.util.ArrayList;

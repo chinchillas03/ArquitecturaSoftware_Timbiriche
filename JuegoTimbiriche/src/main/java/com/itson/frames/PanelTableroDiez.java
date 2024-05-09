@@ -5,11 +5,11 @@
 package com.itson.frames;
 
 import com.itson.interfaces.JuegoListener;
-import dominio.ColoresJugadores;
-import dominio.Jugador;
-import dominio.Linea;
-import dominio.Punto;
-import dominio.Tablero;
+import Aggregates.ColoresJugadores;
+import Entities.Jugador;
+import Aggregates.Linea;
+import ValueObjects.Punto;
+import Aggregates.Tablero;
 import java.awt.BasicStroke;
 import java.awt.Graphics;
 import java.awt.Graphics2D;

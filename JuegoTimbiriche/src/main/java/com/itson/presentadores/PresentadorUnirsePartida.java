@@ -11,7 +11,7 @@ import com.itson.modelos.ModeloUnirsePartida;
 import com.itson.p2p.Cliente;
 import com.itson.p2p.Protocolo;
 import com.itson.p2p.Servidor;
-import dominio.Jugador;
+import Entities.Jugador;
 import java.io.IOException;
 
 /**
@@ -40,7 +40,7 @@ public class PresentadorUnirsePartida implements UnirsePartidaListener{
     
     public void crearConexion(){
         try {
-            int puerto1 = 9996;
+            int puerto1 = 9997;
             Servidor servidor = new Servidor(puerto1);
             Cliente cliente = new Cliente();            
             Protocolo protocolo = new Protocolo();

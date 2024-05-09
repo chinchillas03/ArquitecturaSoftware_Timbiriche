@@ -5,7 +5,7 @@
 package com.itson.interfaces;
 
 import com.itson.dtos.SolicitarInicioDTO;
-import dominio.Partida;
+import Entities.Partida;
 
 /**
  *

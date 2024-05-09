@@ -4,7 +4,7 @@
  */
 package com.itson.interfaces;
 
-import dominio.Jugador;
+import Entities.Jugador;
 
 /**
  *

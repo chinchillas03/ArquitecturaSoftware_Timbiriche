@@ -8,10 +8,10 @@ import com.itson.dtos.SolicitarInicioDTO;
 import com.itson.frames.FrmJuego;
 import com.itson.interfaces.JuegoListener;
 import com.itson.modelos.ModeloJuego;
-import dominio.Jugador;
-import dominio.Linea;
-import dominio.Partida;
-import dominio.Tablero;
+import Entities.Jugador;
+import Aggregates.Linea;
+import Entities.Partida;
+import Aggregates.Tablero;
 import java.util.List;
 
 /**

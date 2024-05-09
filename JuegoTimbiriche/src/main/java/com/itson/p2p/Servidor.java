@@ -5,7 +5,7 @@
 package com.itson.p2p;
 
 import com.itson.dtos.ConexionDTO;
-import dominio.Partida;
+import Entities.Partida;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

@@ -4,10 +4,10 @@
  */
 package com.itson.interfaces;
 
-import dominio.Jugador;
-import dominio.Linea;
-import dominio.Partida;
-import dominio.Tablero;
+import Entities.Jugador;
+import Aggregates.Linea;
+import Entities.Partida;
+import Aggregates.Tablero;
 import java.util.List;
 
 /**

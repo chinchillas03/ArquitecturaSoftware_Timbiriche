@@ -7,9 +7,9 @@ package com.itson.frames;
 import com.itson.dtos.SolicitarInicioDTO;
 import com.itson.interfaces.LobbyListener;
 import com.itson.presentadores.PresentadorLobby;
-import dominio.DimensionTablero;
-import dominio.Jugador;
-import dominio.Partida;
+import ValueObjects.DimensionTablero;
+import Entities.Jugador;
+import Entities.Partida;
 import java.util.List;
 import javax.swing.text.View;
 

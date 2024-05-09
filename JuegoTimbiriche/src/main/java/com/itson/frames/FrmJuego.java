@@ -5,9 +5,9 @@
 package com.itson.frames;
 
 import com.itson.interfaces.JuegoListener;
-import dominio.ColoresJugadores;
-import dominio.Jugador;
-import dominio.Tablero;
+import Aggregates.ColoresJugadores;
+import Entities.Jugador;
+import Aggregates.Tablero;
 import java.awt.HeadlessException;
 import java.util.List;
 

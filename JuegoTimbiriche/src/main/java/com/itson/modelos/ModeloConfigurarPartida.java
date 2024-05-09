@@ -9,10 +9,10 @@ import com.itson.p2p.Cliente;
 import com.itson.p2p.Protocolo;
 import com.itson.p2p.Servidor;
 import com.itson.presentadores.PresentadorLobby;
-import dominio.ColoresJugadores;
-import dominio.DimensionTablero;
-import dominio.Jugador;
-import dominio.Partida;
+import Aggregates.ColoresJugadores;
+import ValueObjects.DimensionTablero;
+import Entities.Jugador;
+import Entities.Partida;
 import java.io.IOException;
 
 /**

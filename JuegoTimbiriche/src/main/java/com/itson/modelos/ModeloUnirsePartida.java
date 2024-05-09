@@ -7,7 +7,7 @@ package com.itson.modelos;
 import com.itson.p2p.Cliente;
 import com.itson.p2p.Protocolo;
 import com.itson.p2p.Servidor;
-import dominio.Jugador;
+import Entities.Jugador;
 import java.io.IOException;
 
 /**

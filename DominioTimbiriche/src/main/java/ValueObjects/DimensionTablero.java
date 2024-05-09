@@ -2,13 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
  */
-package dominio;
+package ValueObjects;
 
 /**
  *
- * @author xfs85
+ * @author Usuario
  */
-public enum EstadoJugador {
-    LISTO,
-    ESPERANDO
+public enum DimensionTablero {
+    DIEZxDIEZ,
+    QUINCExQUINCE,
+    VEINTExVEINTE
 }

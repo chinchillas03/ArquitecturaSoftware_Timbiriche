@@ -4,9 +4,9 @@
  */
 package com.itson.dtos;
 
-import dominio.ColoresJugadores;
-import dominio.DimensionTablero;
-import dominio.Jugador;
+import Aggregates.ColoresJugadores;
+import ValueObjects.DimensionTablero;
+import Entities.Jugador;
 
 /**
  * Este DTO se utiliza para enviar informacion sobre la partida que 

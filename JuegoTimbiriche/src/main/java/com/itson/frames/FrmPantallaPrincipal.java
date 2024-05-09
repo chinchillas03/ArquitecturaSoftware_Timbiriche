@@ -6,7 +6,7 @@ package com.itson.frames;
 
 import com.itson.interfaces.PantallaPrincipalListener;
 import com.itson.presentadores.PresentadorPantallaPrincipal;
-import dominio.Jugador;
+import Entities.Jugador;
 import java.awt.Color;
 import java.util.Random;
 import javax.swing.ImageIcon;
