@@ -19,7 +19,6 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -109,10 +108,15 @@ public class PanelTableroDiez extends JPanel implements Runnable {
                             Linea linea = new Linea();
                             linea.setPunto1(currentPoint);
                             linea.setPunto2(punto);
-                            this.juegoListener.agregaLineaALista(this.tablero, linea);
-
+                            this.juegoListener.agregaLineaALista(this.tablero, linea);  
+                            
+                            System.out.println(tablero.getLineas().toString());
+                            
+                            this.juegoListener.validaTurno(linea, tablero);
+                          
                             this.currentPoint = null;
-
+                            
+                            
 
                             return true;
                         }
@@ -125,6 +129,7 @@ public class PanelTableroDiez extends JPanel implements Runnable {
         }
         return false;
     }
+    
 
     public void establecerPuntoActual(Ellipse2D.Double punto) {
         this.currentPoint = punto;

@@ -65,6 +65,13 @@ public class PresentadorJuego implements JuegoListener {
         return linea;
     }
 
- 
+    @Override
+    public boolean validaTurno(Linea linea, Tablero tablero) {
+
+        model.validaTurno(linea, tablero);
+        return true; 
+    }
+
+    
 
 }

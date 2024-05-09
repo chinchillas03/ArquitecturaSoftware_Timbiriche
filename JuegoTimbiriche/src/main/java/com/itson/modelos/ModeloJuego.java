@@ -10,8 +10,11 @@ import dominio.Linea;
 import dominio.Partida;
 import dominio.Punto;
 import dominio.Tablero;
+import java.awt.geom.Ellipse2D;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,14 +38,15 @@ public class ModeloJuego {
         llenarArregloDeDimensiones();
         tablero = new Tablero();
         tablero.setDimension(solicitarInicioDTO.getDimension());
-        this.tablero.setLineas( creaListaDeLineas()); 
+        this.tablero.setLineas(creaListaDeLineas());
         llenaListaPuntos();
         return tablero;
     }
-    
-    private List<Linea> creaListaDeLineas(){
-        return new ArrayList<Linea>(); 
+
+    private List<Linea> creaListaDeLineas() {
+        return new ArrayList<Linea>();
     }
+
     private List<Punto> creaListaPuntos() {
         return new ArrayList<Punto>();
     }
@@ -110,7 +114,37 @@ public class ModeloJuego {
     }
 
     public Linea agregaLineaALista(Tablero tablero, Linea linea) {
-        return tablero.agregaLinea(tablero, linea); 
+        return tablero.agregaLinea(tablero, linea);
+    }
+
+    public boolean validaTurno(Linea linea, Tablero tablero) {
+
+        int cont = 0;
+
+        List<Linea> lineasEnRevision = new ArrayList<>();
+
+        lineasEnRevision.add(linea);
+
+        cont++;
+
+        Ellipse2D puntoOriginalA = linea.getPunto1();
+        Ellipse2D puntoOriginalB = linea.getPunto2();
+
+        for (Linea lineaEnTablero : tablero.getLineas()) {
+
+            if ((lineaEnTablero.getPunto1() == puntoOriginalA
+                    || lineaEnTablero.getPunto1() == puntoOriginalB) && lineaEnTablero != linea) {
+                JOptionPane.showMessageDialog(null, "Coincidencia!!!!");
+            } else if ((lineaEnTablero.getPunto2() == puntoOriginalA
+                    || lineaEnTablero.getPunto2() == puntoOriginalB) && lineaEnTablero != linea) {
+
+                JOptionPane.showMessageDialog(null, "Coincidencia!!!!");
+
+            }
+
+        }
+
+        return true;
     }
 
 }

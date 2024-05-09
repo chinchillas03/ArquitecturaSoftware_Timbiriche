@@ -24,4 +24,6 @@ public interface JuegoListener {
     List<Jugador> obtenerListaJugadores(); 
     
     Linea agregaLineaALista(Tablero tablero, Linea linea); 
+    
+    boolean validaTurno(Linea linea, Tablero tablero); 
 }
