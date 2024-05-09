@@ -112,6 +112,7 @@ public class Cliente implements Runnable{
             this.setServidoresNodos(nodosConocidos);            
             ConexionDTO nodoPrincipal = new ConexionDTO(ip, puerto);            
             this.conectarOtrosNodos(nodoPrincipal);
+            this.refrescarLobby(miServer.getPartida().getJugadores());
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Error: " + e.getMessage());
         }
