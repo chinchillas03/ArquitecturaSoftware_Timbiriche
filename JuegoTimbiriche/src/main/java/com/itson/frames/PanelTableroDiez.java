@@ -19,6 +19,7 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -84,19 +85,13 @@ public class PanelTableroDiez extends JPanel implements Runnable {
     }
 
     protected boolean handleClick(Point clickPoint) {
-
         for (Ellipse2D.Double punto : this.objetosPuntos) {
-
             if (punto.contains(clickPoint)) {
-
                 if (this.currentPoint == null) {
                     establecerPuntoActual(punto);
-                } else if (this.currentPoint != null) {
-
+                } else {
                     for (Jugador jugador : jugadores) {
-
                         if (colores.obtenerColor(jugador.getNombre()) != null) {
-
                             Graphics2D g2d = (Graphics2D) getGraphics();
                             g2d.setStroke(new BasicStroke(3));
                             g2d.setColor(colores.obtenerColor(jugador.getNombre()));
@@ -104,32 +99,67 @@ public class PanelTableroDiez extends JPanel implements Runnable {
                                     (int) this.currentPoint.getY() + 15,
                                     (int) punto.getX() + 15,
                                     (int) punto.getY() + 15);
-                            
+
                             Linea linea = new Linea();
                             linea.setPunto1(currentPoint);
                             linea.setPunto2(punto);
-                            this.juegoListener.agregaLineaALista(this.tablero, linea);  
-                            
-                            System.out.println(tablero.getLineas().toString());
-                            
-                            this.juegoListener.validaTurno(linea, tablero);
-                          
-                            this.currentPoint = null;
-                            
-                            
 
+                            this.juegoListener.agregaLineaALista(this.tablero, linea);
+
+                            if (verificaCuadro(linea)) {
+                                JOptionPane.showMessageDialog(this, "¡Has completado un cuadro!");
+                            }
+
+                            System.out.println(tablero.getLineas().toString());
+
+                        
+                            this.currentPoint = null;
                             return true;
                         }
                     }
-
                 }
-
             }
-
         }
         return false;
     }
-    
+private boolean verificaCuadro(Linea nuevaLinea) {
+    Ellipse2D p1 = nuevaLinea.getPunto1();
+    Ellipse2D p2 = nuevaLinea.getPunto2();
+
+    List<Ellipse2D> puntosCompartidos = new ArrayList<>();
+
+
+    for (Linea linea : tablero.getLineas()) {
+        if (linea.equals(nuevaLinea)) continue; // Ignorar la línea actual
+
+        if (linea.getPunto1().equals(p1) || linea.getPunto2().equals(p1)) {
+            puntosCompartidos.add(linea.getPuntoOpuesto(p1));
+        }
+        if (linea.getPunto1().equals(p2) || linea.getPunto2().equals(p2)) {
+            puntosCompartidos.add(linea.getPuntoOpuesto(p2));
+        }
+    }
+
+  
+    for (int i = 0; i < puntosCompartidos.size(); i++) {
+        for (int j = i + 1; j < puntosCompartidos.size(); j++) {
+            Ellipse2D op1 = puntosCompartidos.get(i);
+            Ellipse2D op2 = puntosCompartidos.get(j);
+            if (op1.equals(op2)) continue; 
+
+        
+            for (Linea linea : tablero.getLineas()) {
+                if ((linea.getPunto1().equals(op1) && linea.getPunto2().equals(op2)) ||
+                    (linea.getPunto1().equals(op2) && linea.getPunto2().equals(op1))) {
+                    return true;
+                }
+            }
+        }
+    }
+
+    return false;
+}
+
 
     public void establecerPuntoActual(Ellipse2D.Double punto) {
         this.currentPoint = punto;

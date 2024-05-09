@@ -15,6 +15,7 @@ import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -117,34 +118,58 @@ public class ModeloJuego {
         return tablero.agregaLinea(tablero, linea);
     }
 
-    public boolean validaTurno(Linea linea, Tablero tablero) {
-
-        int cont = 0;
-
+    public void validaTurno(Linea linea, Tablero tablero) {
+        // establece linea original dibujada
+        Linea lineaOriginal = linea;
+        
+        // crea arreglo con lineas en revision 
         List<Linea> lineasEnRevision = new ArrayList<>();
-
-        lineasEnRevision.add(linea);
-
-        cont++;
+        
+        // variable con linea que se está revisando
+        Linea lineaEnRevision = linea;
 
         Ellipse2D puntoOriginalA = linea.getPunto1();
         Ellipse2D puntoOriginalB = linea.getPunto2();
+        
+        if (validaCoincidencia(tablero, lineaEnRevision) != null) {
 
-        for (Linea lineaEnTablero : tablero.getLineas()) {
-
-            if ((lineaEnTablero.getPunto1() == puntoOriginalA
-                    || lineaEnTablero.getPunto1() == puntoOriginalB) && lineaEnTablero != linea) {
-                JOptionPane.showMessageDialog(null, "Coincidencia!!!!");
-            } else if ((lineaEnTablero.getPunto2() == puntoOriginalA
-                    || lineaEnTablero.getPunto2() == puntoOriginalB) && lineaEnTablero != linea) {
-
-                JOptionPane.showMessageDialog(null, "Coincidencia!!!!");
-
+            lineaEnRevision = validaCoincidencia(tablero, linea);
+            if(!lineasEnRevision.contains(lineaEnRevision)){
+                
             }
+            
+            lineasEnRevision.add(lineaEnRevision);
+            
+            
+            
+        } else if (validaCoincidencia(tablero, linea) == null) {
+
+            lineasEnRevision.clear();
+            lineasEnRevision.add(linea);
 
         }
 
-        return true;
+    }
+
+    public Linea validaCoincidencia(Tablero tablero, Linea linea) {
+
+        for (Linea lineaEnRevision : tablero.getLineas()) {
+
+            if ((lineaEnRevision.getPunto1() == linea.getPunto1()
+                    || lineaEnRevision.getPunto1() == linea.getPunto2()) && linea != lineaEnRevision) {
+
+                JOptionPane.showMessageDialog(null, "coincidencias");
+                return lineaEnRevision;
+
+            } else if ((lineaEnRevision.getPunto2() == linea.getPunto1()
+                    || lineaEnRevision.getPunto2() == linea.getPunto2()) && linea != lineaEnRevision) {
+
+                JOptionPane.showMessageDialog(null, "coincidencias");
+                return lineaEnRevision;
+            }
+        }
+        System.out.println("Sin coincidencias");
+        return null;
     }
 
 }

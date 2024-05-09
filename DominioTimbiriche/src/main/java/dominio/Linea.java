@@ -11,12 +11,12 @@ import java.awt.geom.Ellipse2D;
  * @author Usuario
  */
 public class Linea {
-    
+
     private Ellipse2D punto1;
     private Ellipse2D punto2;
     private Jugador propietario;
-    private Cuadro cuadro; 
-    
+    private Cuadro cuadro;
+
     public Ellipse2D getPunto1() {
         return punto1;
     }
@@ -40,5 +40,13 @@ public class Linea {
     public void setPropietario(Jugador propietario) {
         this.propietario = propietario;
     }
-    
+
+    public Ellipse2D getPuntoOpuesto(Ellipse2D referencia) {
+        if (referencia.equals(punto1)) {
+            return punto2;
+        } else if (referencia.equals(punto2)) {
+            return punto1;
+        }
+        return null; // El punto de referencia no es parte de esta línea.
+    }
 }
