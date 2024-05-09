@@ -66,11 +66,11 @@ public class PresentadorJuego implements JuegoListener {
     }
 
     @Override
-    public boolean validaTurno(Linea linea, Tablero tablero) {
-
-        model.validaTurno(linea, tablero);
-        return true; 
+    public boolean verificaCuadro(Linea linea) {
+       return model.verificaCuadro(linea);
     }
+
+   
 
     
 

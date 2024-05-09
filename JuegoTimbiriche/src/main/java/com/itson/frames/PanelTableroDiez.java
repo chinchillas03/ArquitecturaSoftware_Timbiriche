@@ -106,7 +106,7 @@ public class PanelTableroDiez extends JPanel implements Runnable {
 
                             this.juegoListener.agregaLineaALista(this.tablero, linea);
 
-                            if (verificaCuadro(linea)) {
+                            if (getJuegoListener().verificaCuadro(linea)) {
                                 JOptionPane.showMessageDialog(this, "¡Has completado un cuadro!");
                             }
 
@@ -122,43 +122,7 @@ public class PanelTableroDiez extends JPanel implements Runnable {
         }
         return false;
     }
-private boolean verificaCuadro(Linea nuevaLinea) {
-    Ellipse2D p1 = nuevaLinea.getPunto1();
-    Ellipse2D p2 = nuevaLinea.getPunto2();
 
-    List<Ellipse2D> puntosCompartidos = new ArrayList<>();
-
-
-    for (Linea linea : tablero.getLineas()) {
-        if (linea.equals(nuevaLinea)) continue; // Ignorar la línea actual
-
-        if (linea.getPunto1().equals(p1) || linea.getPunto2().equals(p1)) {
-            puntosCompartidos.add(linea.getPuntoOpuesto(p1));
-        }
-        if (linea.getPunto1().equals(p2) || linea.getPunto2().equals(p2)) {
-            puntosCompartidos.add(linea.getPuntoOpuesto(p2));
-        }
-    }
-
-  
-    for (int i = 0; i < puntosCompartidos.size(); i++) {
-        for (int j = i + 1; j < puntosCompartidos.size(); j++) {
-            Ellipse2D op1 = puntosCompartidos.get(i);
-            Ellipse2D op2 = puntosCompartidos.get(j);
-            if (op1.equals(op2)) continue; 
-
-        
-            for (Linea linea : tablero.getLineas()) {
-                if ((linea.getPunto1().equals(op1) && linea.getPunto2().equals(op2)) ||
-                    (linea.getPunto1().equals(op2) && linea.getPunto2().equals(op1))) {
-                    return true;
-                }
-            }
-        }
-    }
-
-    return false;
-}
 
 
     public void establecerPuntoActual(Ellipse2D.Double punto) {

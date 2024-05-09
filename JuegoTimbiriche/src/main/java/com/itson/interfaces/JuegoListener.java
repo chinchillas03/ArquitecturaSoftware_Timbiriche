@@ -25,5 +25,5 @@ public interface JuegoListener {
     
     Linea agregaLineaALista(Tablero tablero, Linea linea); 
     
-    boolean validaTurno(Linea linea, Tablero tablero); 
+    boolean verificaCuadro(Linea linea); 
 }

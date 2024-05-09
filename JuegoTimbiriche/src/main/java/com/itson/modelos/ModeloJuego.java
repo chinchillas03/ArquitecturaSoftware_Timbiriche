@@ -118,58 +118,42 @@ public class ModeloJuego {
         return tablero.agregaLinea(tablero, linea);
     }
 
-    public void validaTurno(Linea linea, Tablero tablero) {
-        // establece linea original dibujada
-        Linea lineaOriginal = linea;
-        
-        // crea arreglo con lineas en revision 
-        List<Linea> lineasEnRevision = new ArrayList<>();
-        
-        // variable con linea que se está revisando
-        Linea lineaEnRevision = linea;
+  public boolean verificaCuadro(Linea nuevaLinea) {
+    Ellipse2D p1 = nuevaLinea.getPunto1();
+    Ellipse2D p2 = nuevaLinea.getPunto2();
 
-        Ellipse2D puntoOriginalA = linea.getPunto1();
-        Ellipse2D puntoOriginalB = linea.getPunto2();
-        
-        if (validaCoincidencia(tablero, lineaEnRevision) != null) {
+    List<Ellipse2D> puntosCompartidos = new ArrayList<>();
 
-            lineaEnRevision = validaCoincidencia(tablero, linea);
-            if(!lineasEnRevision.contains(lineaEnRevision)){
-                
-            }
-            
-            lineasEnRevision.add(lineaEnRevision);
-            
-            
-            
-        } else if (validaCoincidencia(tablero, linea) == null) {
 
-            lineasEnRevision.clear();
-            lineasEnRevision.add(linea);
+    for (Linea linea : tablero.getLineas()) {
+        if (linea.equals(nuevaLinea)) continue; // Ignorar la línea actual
 
+        if (linea.getPunto1().equals(p1) || linea.getPunto2().equals(p1)) {
+            puntosCompartidos.add(linea.getPuntoOpuesto(p1));
         }
-
+        if (linea.getPunto1().equals(p2) || linea.getPunto2().equals(p2)) {
+            puntosCompartidos.add(linea.getPuntoOpuesto(p2));
+        }
     }
 
-    public Linea validaCoincidencia(Tablero tablero, Linea linea) {
+  
+    for (int i = 0; i < puntosCompartidos.size(); i++) {
+        for (int j = i + 1; j < puntosCompartidos.size(); j++) {
+            Ellipse2D op1 = puntosCompartidos.get(i);
+            Ellipse2D op2 = puntosCompartidos.get(j);
+            if (op1.equals(op2)) continue; 
 
-        for (Linea lineaEnRevision : tablero.getLineas()) {
-
-            if ((lineaEnRevision.getPunto1() == linea.getPunto1()
-                    || lineaEnRevision.getPunto1() == linea.getPunto2()) && linea != lineaEnRevision) {
-
-                JOptionPane.showMessageDialog(null, "coincidencias");
-                return lineaEnRevision;
-
-            } else if ((lineaEnRevision.getPunto2() == linea.getPunto1()
-                    || lineaEnRevision.getPunto2() == linea.getPunto2()) && linea != lineaEnRevision) {
-
-                JOptionPane.showMessageDialog(null, "coincidencias");
-                return lineaEnRevision;
+        
+            for (Linea linea : tablero.getLineas()) {
+                if ((linea.getPunto1().equals(op1) && linea.getPunto2().equals(op2)) ||
+                    (linea.getPunto1().equals(op2) && linea.getPunto2().equals(op1))) {
+                    return true;
+                }
             }
         }
-        System.out.println("Sin coincidencias");
-        return null;
     }
+
+    return false;
+}
 
 }
