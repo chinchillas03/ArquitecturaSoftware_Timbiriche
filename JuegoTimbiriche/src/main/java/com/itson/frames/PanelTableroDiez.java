@@ -44,7 +44,7 @@ public class PanelTableroDiez extends JPanel implements Runnable {
         this.tablero = juegoListener.obtenerPartida().getTablero();
         this.colores = juegoListener.obtenerPartida().getColoresJugadores();
         this.jugadores = juegoListener.obtenerPartida().getJugadores();
-        
+        obtenerListaJugadores(); 
         mostrarTableroJuego(tablero);
     }
 
@@ -104,7 +104,7 @@ public class PanelTableroDiez extends JPanel implements Runnable {
                     for (Jugador jugador : jugadores) {
                         if (colores.obtenerColor(jugador.getNombre()) != null) {
                             Graphics2D g2d = (Graphics2D) getGraphics();
-                            g2d.setStroke(new BasicStroke(3));
+                            g2d.setStroke(new BasicStroke(10));
                             g2d.setColor(colores.obtenerColor(jugador.getNombre()));
                             g2d.drawLine((int) this.currentPoint.getX() + 15,
                                     (int) this.currentPoint.getY() + 15,
@@ -156,5 +156,10 @@ public class PanelTableroDiez extends JPanel implements Runnable {
     public JuegoListener getJuegoListener() {
         return juegoListener;
     }
-
+    
+    private List<Jugador> obtenerListaJugadores(){
+        return this.juegoListener.obtenerListaJugadores(); 
+    }
+    
+    
 }

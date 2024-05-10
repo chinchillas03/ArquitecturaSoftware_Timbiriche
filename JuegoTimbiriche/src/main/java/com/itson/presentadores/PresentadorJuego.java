@@ -70,7 +70,9 @@ public class PresentadorJuego implements JuegoListener {
        return model.verificaCuadro(linea);
     }
 
-   
+   public List<Jugador> obtenerJugadoresPartida(){
+       return model.obtenerListaJugadores(); 
+   }
 
     
 

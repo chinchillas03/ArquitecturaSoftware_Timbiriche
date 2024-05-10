@@ -26,4 +26,6 @@ public interface JuegoListener {
     Linea agregaLineaALista(Tablero tablero, Linea linea); 
     
     boolean verificaCuadro(Linea linea); 
+    
+    List<Jugador> obtenerJugadoresPartida();
 }

@@ -16,7 +16,7 @@ public class FrmJuego extends javax.swing.JFrame {
 
     private JuegoListener listener;
     private ColoresJugadores colores;
-
+    
   /**
  * Creates new form FrmJuego
  */
@@ -56,7 +56,8 @@ public FrmJuego(JuegoListener listener) {
         this.listener.clickBotonSalir();
         this.cerrarPantalla();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
