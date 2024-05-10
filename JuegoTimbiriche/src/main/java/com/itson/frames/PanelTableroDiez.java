@@ -102,7 +102,8 @@ public class PanelTableroDiez extends JPanel implements Runnable {
                     establecerPuntoActual(punto);
                 } else {
                     for (Jugador jugador : jugadores) {
-                        if (colores.obtenerColor(jugador.getNombre()) != null) {
+                        
+                        if (colores.obtenerColor(jugador.getNombre()) != null && punto!=this.currentPoint) {
                             Graphics2D g2d = (Graphics2D) getGraphics();
                             g2d.setStroke(new BasicStroke(10));
                             g2d.setColor(colores.obtenerColor(jugador.getNombre()));

@@ -40,7 +40,7 @@ public class PresentadorUnirsePartida implements UnirsePartidaListener{
     
     public void crearConexion(){
         try {
-            int puerto1 = 9997;
+            int puerto1 = 9999;
             Servidor servidor = new Servidor(puerto1);
             Cliente cliente = new Cliente();            
             Protocolo protocolo = new Protocolo();
