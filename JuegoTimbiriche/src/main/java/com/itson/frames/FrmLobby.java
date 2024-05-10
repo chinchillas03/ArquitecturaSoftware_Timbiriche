@@ -43,7 +43,7 @@ public class FrmLobby extends javax.swing.JFrame {
         solicitarInicioDTO.setDimension(DimensionTablero.DIEZxDIEZ);
         solicitarInicioDTO.setPartida(this.listener.obtenerPartida());
         this.listener.solicitarInicio(solicitarInicioDTO);
-        this.cerrarPantalla();
+        this.cerrarPantalla();  
     }
 
     private void listenerVolverInicio() {

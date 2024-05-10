@@ -11,9 +11,12 @@ import Aggregates.Linea;
 import ValueObjects.Punto;
 import Aggregates.Tablero;
 import java.awt.BasicStroke;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.RenderingHints;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.Ellipse2D;
@@ -41,6 +44,7 @@ public class PanelTableroDiez extends JPanel implements Runnable {
         this.tablero = juegoListener.obtenerPartida().getTablero();
         this.colores = juegoListener.obtenerPartida().getColoresJugadores();
         this.jugadores = juegoListener.obtenerPartida().getJugadores();
+        
         mostrarTableroJuego(tablero);
     }
 
@@ -56,7 +60,14 @@ public class PanelTableroDiez extends JPanel implements Runnable {
     public void doDrawing(Graphics g) {
 
         Graphics2D g2d = (Graphics2D) g;
-
+        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2d.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        g2d.setFont(new Font("Tahoma", Font.BOLD, 70));
+        g2d.setColor(Color.WHITE);
+        
+        g2d.drawString("Timbiriche", 250, 85);
+        g2d.setColor(Color.WHITE);
+        
         for (Ellipse2D.Double puntosADibujar : this.objetosPuntos) {
             g2d.draw(puntosADibujar);
             g2d.fill(puntosADibujar);
@@ -112,7 +123,6 @@ public class PanelTableroDiez extends JPanel implements Runnable {
 
                             System.out.println(tablero.getLineas().toString());
 
-                        
                             this.currentPoint = null;
                             return true;
                         }
@@ -122,8 +132,6 @@ public class PanelTableroDiez extends JPanel implements Runnable {
         }
         return false;
     }
-
-
 
     public void establecerPuntoActual(Ellipse2D.Double punto) {
         this.currentPoint = punto;

@@ -6,10 +6,7 @@ package com.itson.frames;
 
 import com.itson.interfaces.JuegoListener;
 import Aggregates.ColoresJugadores;
-import Entities.Jugador;
-import Aggregates.Tablero;
-import java.awt.HeadlessException;
-import java.util.List;
+import java.awt.Color;
 
 /**
  *
@@ -20,20 +17,24 @@ public class FrmJuego extends javax.swing.JFrame {
     private JuegoListener listener;
     private ColoresJugadores colores;
 
-    /**
-     * Creates new form FrmJuego
-     */
-    public FrmJuego(JuegoListener listener) {
-        initComponents();
-        if (listener != null) {
-            PanelTableroDiez panelTablero = new PanelTableroDiez(listener);
-            panelTablero.run();
-            panelTablero.setBounds(0, 0, 900, 700);
-            add(panelTablero);
-        } else {
-            System.err.println("El listener es nulo");
-        }
+  /**
+ * Creates new form FrmJuego
+ */
+public FrmJuego(JuegoListener listener) {
+    initComponents();
+    if (listener != null) {
+        PanelTableroDiez panelTablero = new PanelTableroDiez(listener);
+        panelTablero.run();
+        panelTablero.setBounds(0, 0, 900, 700);
+        panelTablero.setBackground(new Color(250, 75, 75)); // Set the background color of your panel
+        add(panelTablero);
+        // Alternatively, you can set the background color of the JFrame itself
+        // setBackground(Color.BLACK);
+    } else {
+        System.err.println("El listener es nulo");
     }
+}
+
 
     public void setListener(JuegoListener listener) {
         this.listener = listener;
