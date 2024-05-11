@@ -25,13 +25,17 @@ import java.io.IOException;
 public class PresentadorConfigurarPartida implements ConfigurarPartidaListener {
 
     private ModeloConfigurarPartida model = new ModeloConfigurarPartida();
-    private FrmConfigurarPartida view = new FrmConfigurarPartida();
-    private Jugador anfitrion; 
-    private PresentadorLobby presentadorLobby;
-    public PresentadorConfigurarPartida(Jugador anfitrion) {
-        view = new FrmConfigurarPartida(anfitrion);
+    private FrmConfigurarPartida view;
+    private Jugador anfitrion;
+    private PresentadorLobby presentadorLobby; 
+
+    
+        public PresentadorConfigurarPartida(Jugador anfitrion) {
+        this.view = new FrmConfigurarPartida(anfitrion);
         this.view.setListener(this);
-        this.anfitrion  = anfitrion; 
+        this.anfitrion = anfitrion;
+        this.presentadorLobby = new PresentadorLobby();  // Inicialización aquí para mayor control
+        presentadorLobby.añadirJugador(anfitrion);
     }
 
     @Override
@@ -42,14 +46,13 @@ public class PresentadorConfigurarPartida implements ConfigurarPartidaListener {
     @Override
     public void clickBotonCrearPartida(CrearPartidaDTO crearPartidaDTO) {
         ColoresJugadores coloresJugadores = new ColoresJugadores();
-        
+
         coloresJugadores.addColor(anfitrion.getNombre(), anfitrion.getColorJugador());
         crearPartidaDTO.setColoresJugadores(coloresJugadores);
         Partida partida = model.crearNuevaPartida(crearPartidaDTO);
-        presentadorLobby = new PresentadorLobby(anfitrion); 
         presentadorLobby.establecerPartidaLobby(partida);
-        presentadorLobby.mostrarDatosPartida(partida);   
-        
+        presentadorLobby.mostrarDatosPartida(partida);
+
         this.crearServer(partida);
     }
 
@@ -74,6 +77,5 @@ public class PresentadorConfigurarPartida implements ConfigurarPartidaListener {
     public void mostrarPantallaConfigurarPartida() {
         this.view.setVisible(true);
     }
-    
-    
+
 }

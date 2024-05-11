@@ -15,20 +15,20 @@ import java.util.List;
  * @author Usuario
  */
 public class ModeloLobby {
-    
+
     private List<Jugador> jugadores;
     private String codigo;
     private String dimension;
-    private Partida partida; 
-    
-    public ModeloLobby(){
+    private Partida partida;
+
+    public ModeloLobby() {
         jugadores = new LinkedList<>();
     }
-    
-    public void añadirJugador(Jugador jugador){
+
+    public void añadirJugador(Jugador jugador) {
         jugadores.add(jugador);
     }
-    
+
     public List<Jugador> getJugadores() {
         return jugadores;
     }
@@ -60,5 +60,5 @@ public class ModeloLobby {
     public void setPartida(Partida partida) {
         this.partida = partida;
     }
-    
+
 }

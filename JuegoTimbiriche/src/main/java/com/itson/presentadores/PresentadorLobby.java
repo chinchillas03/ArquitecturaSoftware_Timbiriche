@@ -23,23 +23,16 @@ public class PresentadorLobby implements LobbyListener {
     private ModeloLobby model = new ModeloLobby();
     private FrmLobby view;
     private PresentadorPantallaPrincipal presentadorPantallaPrincipal;
-    private Partida partida; 
-    
+    private Partida partida;
+
     public PresentadorLobby() {
         view = new FrmLobby();
         this.view.setListener(this);
         this.view.repaint();
     }
 
-    public PresentadorLobby(Jugador anfitrion) {
-        view = new FrmLobby();
-        this.view.setListener(this);
-        this.view.repaint();
-        this.model.añadirJugador(anfitrion);
-    }
-
     @Override
-    public void solicitarInicio(SolicitarInicioDTO solicitarInicioDTO ) {
+    public void solicitarInicio(SolicitarInicioDTO solicitarInicioDTO) {
         new PresentadorJuego(solicitarInicioDTO);
     }
 
@@ -62,15 +55,17 @@ public class PresentadorLobby implements LobbyListener {
         view.setVisible(true);
     }
 
-    public void setearLobbyConexion(UnirsePartidaDTO dto){
+    public void setearLobbyConexion(UnirsePartidaDTO dto) {
 //        this.model.setJugadores(dto.getPartida().getJugadores());
 //        this.model.setCodigo(dto.getPartida().getCodigo());
 //        this.model.setDimension(dto.getPartida().getTablero().getDimension().toString());
+       
+        this.partida = dto.getPartida(); 
         this.mostrarDatosPartida(dto.getPartida());
     }
-    
+
     public void mostrarDatosPartida(Partida partida) {
-        mostrarPantallaLobby();       
+        mostrarPantallaLobby();
         actualizarDatosJugador(partida);
         view.actualizarDatosPartida(partida);
     }
@@ -80,18 +75,27 @@ public class PresentadorLobby implements LobbyListener {
         List<Jugador> jugadores = partida.getJugadores();
         view.mostrarJugador(jugadores);
     }
-    
-    public void establecerPartidaLobby(Partida partida){
+
+    public void establecerPartidaLobby(Partida partida) {
         this.model.setPartida(partida);
+        System.out.println("Partida establecida en ModeloLobby: " + this.model.getPartida()); // Verifica aquí
+        this.model.getPartida();
+     
     }
 
-    public void refrescar(List<Jugador> jugadores){
+    public void refrescar(List<Jugador> jugadores, Partida partida) {
+        this.model.setPartida(partida);
         this.view.refrescar(jugadores);
     }
-    
+
     @Override
     public Partida obtenerPartida() {
         return this.model.getPartida();
+    }
+
+    public void añadirJugador(Jugador anfitrion) {
+        this.model.añadirJugador(anfitrion);
+
     }
 
 }

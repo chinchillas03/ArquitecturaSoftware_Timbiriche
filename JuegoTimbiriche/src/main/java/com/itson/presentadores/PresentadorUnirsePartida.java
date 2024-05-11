@@ -34,13 +34,14 @@ public class PresentadorUnirsePartida implements UnirsePartidaListener{
         model.setIp(ip);
         model.setpuerto(puerto);
         model.setJugador(anfitrion);
+        
         this.crearConexion();
         this.view.setVisible(false);
     }
     
     public void crearConexion(){
         try {
-            int puerto1 = 9999;
+            int puerto1 = 9997;
             Servidor servidor = new Servidor(puerto1);
             Cliente cliente = new Cliente();            
             Protocolo protocolo = new Protocolo();
@@ -48,6 +49,7 @@ public class PresentadorUnirsePartida implements UnirsePartidaListener{
             servidor.setProtocolo(protocolo);
             cliente.setMiServer(servidor);  
             cliente.setLobby(new PresentadorLobby());
+            System.out.println("partida del lobby del cliente: "+cliente.getLobby().obtenerPartida()); 
             cliente.conectar(this.model.getIp(), Integer.parseInt(this.model.getpuerto()), this.model.getJugador());           
         } catch (IOException e) {
             System.out.println("Error: " + e.getMessage());

@@ -48,6 +48,7 @@ public class Servidor implements Runnable{
 
     public void setPartida(Partida partida) {
         this.partida = partida;
+        
     }
 
     public ServerSocket getServerSocket() {
@@ -110,7 +111,7 @@ public class Servidor implements Runnable{
                         }
                         cliente.agregarNodo(nodoNuevo);
                         this.partida.agregarJugador(nodoNuevo.getJugador());
-                        this.cliente.refrescarLobby(this.partida.getJugadores());
+                        this.cliente.refrescarLobby(this.partida.getJugadores(), this.partida);
                         nodosClientes.add(nodoNuevo);
                         out.writeObject(nodos);
                     }

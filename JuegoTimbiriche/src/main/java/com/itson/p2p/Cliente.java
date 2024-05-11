@@ -8,10 +8,10 @@ import com.itson.dtos.ConexionDTO;
 import com.itson.dtos.UnirsePartidaDTO;
 import com.itson.presentadores.PresentadorLobby;
 import Entities.Jugador;
+import Entities.Partida;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.LinkedList;
@@ -47,8 +47,8 @@ public class Cliente implements Runnable{
         }
     }
     
-    public void refrescarLobby(List<Jugador> jugadores){
-        this.lobby.refrescar(jugadores);
+    public void refrescarLobby(List<Jugador> jugadores, Partida partida){
+        this.lobby.refrescar(jugadores, partida);
     }
     
     public PresentadorLobby getLobby() {
@@ -112,7 +112,7 @@ public class Cliente implements Runnable{
             this.setServidoresNodos(nodosConocidos);            
             ConexionDTO nodoPrincipal = new ConexionDTO(ip, puerto);            
             this.conectarOtrosNodos(nodoPrincipal);
-            this.refrescarLobby(miServer.getPartida().getJugadores());
+            this.refrescarLobby(miServer.getPartida().getJugadores(), miServer.getPartida());
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Error: " + e.getMessage());
         }
